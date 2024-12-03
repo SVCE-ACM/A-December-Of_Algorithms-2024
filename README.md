@@ -27,6 +27,7 @@ Check out our FAQ for more information.
 ## Index
 - [**December 01 - The Vanishing Number**](#december-01---the-vanishing-number)
 - [**December 02 - The Wave Sort Challenge**](#december-02---the-wave-sort-challenge)
+- [**December 03 - Alternating Square Arrangement**](#december-03---alternating-square-arrangement)
 - [**FAQ**](#faq)
 
 
@@ -122,6 +123,63 @@ In this case, we swap adjacent elements to form a wave-like array.
 {2, 1, 4, 3, 6, 5} satisfies the condition where elements are alternately large and small.
 
 ```
+### December 03 - Alternating Square Arrangement
+
+   #### Problem Statement
+```
+You are given integers ￼ (number of red squares) and ￼ (number of blue squares).
+Your task is to arrange the squares in a sequence such that:
+No two adjacent squares have the same color.
+If it is not possible to create such an arrangement, return "Not possible".
+
+```
+
+```
+Input
+
+Two integers:
+R￼: Number of red squares.
+B￼: Number of blue squares.
+
+Output
+
+A valid arrangement as a string (e.g., "RBRBR" or "BRBRB") that satisfies the condition, or "Not possible" if no valid arrangement exists.
+
+
+```
+
+Sample Input and Output:
+Example 1:
+```
+Input:
+R = 3  
+B = 2  
+
+Output:
+"RBRBR"
+```
+Explanation:
+```
+The sequence "RBRBR" satisfies the condition since no two adjacent squares are the same color.
+```
+
+
+Example 2:
+```
+Input:
+R = 4  
+B = 2  
+
+Output:
+"Not possible"
+```
+Explanation:
+```
+It is impossible to arrange 4 red squares and 2 blue squares without
+having two adjacent squares of the same color. Hence, the output is "Not possible".
+
+```
+
 # FAQ
 #### Who can join the Challenge?
 
