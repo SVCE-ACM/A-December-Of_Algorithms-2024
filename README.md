@@ -25,43 +25,48 @@ All you need to do is fork this repository, implement all 31 algorithms and send
 Check out our FAQ for more information.
 
 ## Index
+
 - [**December 01 - The Vanishing Number**](#december-01---the-vanishing-number)
 - [**December 02 - The Wave Sort Challenge**](#december-02---the-wave-sort-challenge)
 - [**December 03 - Alternating Square Arrangement**](#december-03---alternating-square-arrangement)
+- [**December 04 - Plant Growth Tracker**](#december-04---plant-growth-tracker)
 - [**FAQ**](#faq)
-
 
 ## Algorithms
 
- ### December 01 - The Vanishing Number
+### December 01 - The Vanishing Number
 
-   #### Problem Statement
+#### Problem Statement
+
 ```
 Imagine a race event with N participants, each having a unique bib number from 1 to N.
 After the race, the event organizers collect the bib numbers of all participants who showed
 up. However, one participant didn’t show up, and their bib number is missing. The task is to
 find out which bib number is missing in order to identify the participant who was absent.
 ```
+
 ```
 Given an integer N and an array of size N-1 containing N-1 numbers between 1 to N. Find
 the number(between 1 to N), that is not present in the given array.
 ```
+
 ![image](https://github.com/user-attachments/assets/177fbe2f-9248-481b-adb6-61dfcea59582)
 
-
 Example 1:
+
 ```
 Input Format:
 N = 5, array[] = {1,2,4,5}
 Result: 3
 ```
+
 ```
 Explanation:
 In the given array, number 3 is missing. So, 3 is the answer.
 ```
 
-
 Example 2:
+
 ```
 Input Format:
 N = 3, array[] = {1,3}
@@ -70,7 +75,8 @@ Result: 2
 
 ### December 02 - The Wave Sort Challenge
 
-   #### Problem Statement
+#### Problem Statement
+
 ```
 Imagine you're at a music concert, surrounded by thousands of fans.
 As the music plays, the crowd begins to move in a rhythmic pattern, rising and falling like a wave.
@@ -86,11 +92,11 @@ Given an unsorted array of integers, sort the array into a wave array. An array 
 arr[0] >= arr[1] <= arr[2] >= arr[3] <= arr[4] >= ….
 
 ```
+
 ![image1](https://github.com/user-attachments/assets/7c46bc27-91f9-4a89-8731-37efa558a939)
 
-
-
 Example 1:
+
 ```
 Input:
 arr[] = {10, 5, 6, 3, 2, 20, 100, 80}
@@ -98,6 +104,7 @@ Output:
 arr[] = {10, 5, 6, 2, 20, 3, 100, 80}
 
 ```
+
 ```
 Explanation:
 Here you can see {10, 5, 6, 2, 20, 3, 100, 80}. The first element is larger than the second, and the same pattern repeats again.
@@ -107,8 +114,8 @@ All you need to maintain is the up-down fashion, which represents a wave. There 
 
 ```
 
-
 Example 2:
+
 ```
 Additional Scenario
 Input:
@@ -117,15 +124,18 @@ Output:
 arr[] = {2, 1, 4, 3, 6, 5}
 
 ```
+
 ```
 Explanation:
 In this case, we swap adjacent elements to form a wave-like array.
 {2, 1, 4, 3, 6, 5} satisfies the condition where elements are alternately large and small.
 
 ```
+
 ### December 03 - Alternating Square Arrangement
 
-   #### Problem Statement
+#### Problem Statement
+
 ```
 You are given integers ￼ (number of red squares) and ￼ (number of blue squares).
 Your task is to arrange the squares in a sequence such that:
@@ -150,37 +160,89 @@ A valid arrangement as a string (e.g., "RBRBR" or "BRBRB") that satisfies the co
 
 Sample Input and Output:
 Example 1:
+
 ```
 Input:
-R = 3  
-B = 2  
+R = 3
+B = 2
 
 Output:
 "RBRBR"
 ```
+
 Explanation:
+
 ```
 The sequence "RBRBR" satisfies the condition since no two adjacent squares are the same color.
 ```
 
-
 Example 2:
+
 ```
 Input:
-R = 4  
-B = 2  
+R = 4
+B = 2
 
 Output:
 "Not possible"
 ```
+
 Explanation:
+
 ```
 It is impossible to arrange 4 red squares and 2 blue squares without
 having two adjacent squares of the same color. Hence, the output is "Not possible".
 
 ```
 
+### December 04 - Plant Growth Tracker
+
+#### Problem Statement
+
+```
+You are designing a program to help a gardener plan how to grow a special type of plant. The plants
+grow in an interesting pattern:
+• It takes 2 months for the plant to before it starts increasing in numbers.
+• Starting from the third month, the number of plants in a month is the sum of the plants in the
+previous two months.
+For example, in the third month, there are 2 plants (1 + 1), in the fourth month, there are 3 plants (1 +
+2), and so on.
+```
+![image](https://github.com/user-attachments/assets/4810c82d-5cc3-4ab8-a247-64d8d8133e44)
+
+```
+However, the gardener needs your help to write a program that predicts the number of plants for
+any given number of months, n. Here's the catch:
+• The gardener's old computer struggles to handle repeated function calls. As a result, you
+cannot use recursion to solve this problem.
+```
+
+
+
+Example 1:
+
+```
+Input: No of Months: 10
+Output: 55
+```
+
+Explanation:
+
+```
+We apply Fibonacci sequence here. Since the growth of the plant perfectly mirrors with Fibonacci
+algorithm, as the gardener's computer is old, we have to use for loops and if statements to generate
+the sequence.
+```
+
+Example 2:
+
+```
+Input: No of Months: 12
+Output: 144
+```
+
 # FAQ
+
 #### Who can join the Challenge?
 
 Anyone who is passionate about coding and can dedicate a little time a day for the challenge for the next 31 days.
@@ -252,3 +314,4 @@ Open up an [issue](https://github.com/SVCE-ACM/A-December-of-Algorithms-2021/iss
 ###### [[Back to Top]](#----)
 
 ![wave](http://cdn.thekrishna.in/img/common/border.png)
+````
