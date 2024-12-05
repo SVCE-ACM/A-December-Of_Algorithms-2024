@@ -30,6 +30,7 @@ Check out our FAQ for more information.
 - [**December 02 - The Wave Sort Challenge**](#december-02---the-wave-sort-challenge)
 - [**December 03 - Alternating Square Arrangement**](#december-03---alternating-square-arrangement)
 - [**December 04 - Plant Growth Tracker**](#december-04---plant-growth-tracker)
+- [**December 05 - Josephus Problem**](#december-05---josephus-problem)
 - [**FAQ**](#faq)
 
 ## Algorithms
@@ -208,6 +209,7 @@ previous two months.
 For example, in the third month, there are 2 plants (1 + 1), in the fourth month, there are 3 plants (1 +
 2), and so on.
 ```
+
 ![image](https://github.com/user-attachments/assets/4810c82d-5cc3-4ab8-a247-64d8d8133e44)
 
 ```
@@ -216,8 +218,6 @@ any given number of months, n. Here's the catch:
 • The gardener's old computer struggles to handle repeated function calls. As a result, you
 cannot use recursion to solve this problem.
 ```
-
-
 
 Example 1:
 
@@ -239,6 +239,55 @@ Example 2:
 ```
 Input: No of Months: 12
 Output: 144
+```
+
+### December 05 - Josephus Problem
+
+#### Problem Statement
+
+```
+A total of n people are standing in a circle, and you are one of them playing a game.
+Starting from a person, k persons will be counted in order along the circle, and the kth person will be killed.
+Then the next k persons will be counted along the circle, and again the kth person will be killed. This cycle will
+continue until only a single person is left in the circle.
+If there are 5 people in the circle in the order A, B, C, D, and E, you will choose k=3. Starting from A, you will
+count A, B and C. C will be the 3rd person and will be killed. Then you will continue counting from D, E and
+then A. A will be third person and will be killed.
+```
+
+![image](https://github.com/user-attachments/assets/5925562d-fc20-48b7-9114-016a0f2819e0)
+
+```
+You will be given an array where the first element is the first person from whom the counting will start and
+the subsequent order of the people. You want to be the last one standing. Determine the index at which you
+should stand to survive the game. Return an integer denoting safe position.
+```
+
+Example 1:
+
+```
+Input: n = 3, k = 2
+Output: 3
+```
+
+Explanation:
+
+```
+There are 3 persons so skipping 1 person i.e 1st person 2nd person will be killed. Thus the safe
+position is 3.
+```
+
+Example 2:
+
+```
+Input: n = 5, k = 3
+Output: 4
+```
+
+Explanation:
+
+```
+There are 5 persons so skipping 2 person i.e 3rd person will be killed. Thus the safe position is 4.
 ```
 
 # FAQ
@@ -314,4 +363,7 @@ Open up an [issue](https://github.com/SVCE-ACM/A-December-of-Algorithms-2021/iss
 ###### [[Back to Top]](#----)
 
 ![wave](http://cdn.thekrishna.in/img/common/border.png)
-````
+
+```
+
+```
