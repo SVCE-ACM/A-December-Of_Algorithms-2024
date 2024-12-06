@@ -31,6 +31,8 @@ Check out our FAQ for more information.
 - [**December 03 - Alternating Square Arrangement**](#december-03---alternating-square-arrangement)
 - [**December 04 - Plant Growth Tracker**](#december-04---plant-growth-tracker)
 - [**December 05 - Josephus Problem**](#december-05---josephus-problem)
+- [**December 06 - Target Pair Finder**](#december-06---target-pair-finder)
+
 - [**FAQ**](#faq)
 
 ## Algorithms
@@ -289,7 +291,29 @@ Explanation:
 ```
 There are 5 persons so skipping 2 person i.e 3rd person will be killed. Thus the safe position is 4.
 ```
+### December 06 - Target Pair Finder
+#### Problem Statement
+```
+From the initialised list of integers and a target sum by the user,
+find all unique pairs of numbers from the list that add up to the target.
+You can use nested loops and conditionals.
+```
 
+
+Sample I/O 1:
+```
+INPUT: 1) A list of integers: numbers = [2, 4, 3, 7, 1, 5].
+              2) A target sum: target = 6.
+OUTPUT:  Unique pairs are [(2, 4), (1, 5)]
+```
+Sample I/O 2:
+```
+INPUT:  1) A list of integers: numbers = [10, 15, 3, 7, 8, 12, 5].
+              2)  A target sum: target = 20.
+OUTPUT: Unique pairs are [(10, 10), (8, 12), (15, 5)]
+Explanation:
+The Target Pair Finder problem is about finding pairs of numbers in a list that add up to a specific target value. From the above example we can see that (10, 10): The first 10 and the second 10 in the list add up to 20, so thereby find all sets of unique pair from the given list summing up to the target value.
+```
 # FAQ
 
 #### Who can join the Challenge?
