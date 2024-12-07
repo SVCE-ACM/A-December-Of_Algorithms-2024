@@ -32,6 +32,7 @@ Check out our FAQ for more information.
 - [**December 04 - Plant Growth Tracker**](#december-04---plant-growth-tracker)
 - [**December 05 - Josephus Problem**](#december-05---josephus-problem)
 - [**December 06 - Target Pair Finder**](#december-06---target-pair-finder)
+- [**December 07 - The Magical Tower**](#december-07---the-magical-tower)
 
 - [**FAQ**](#faq)
 
@@ -292,6 +293,7 @@ Explanation:
 There are 5 persons so skipping 2 person i.e 3rd person will be killed. Thus the safe position is 4.
 ```
 ### December 06 - Target Pair Finder
+
 #### Problem Statement
 ```
 From the initialised list of integers and a target sum by the user,
@@ -314,6 +316,42 @@ OUTPUT: Unique pairs are [(10, 10), (8, 12), (15, 5)]
 Explanation:
 The Target Pair Finder problem is about finding pairs of numbers in a list that add up to a specific target value. From the above example we can see that (10, 10): The first 10 and the second 10 in the list add up to 20, so thereby find all sets of unique pair from the given list summing up to the target value.
 ```
+### December 07 - The Magical Tower
+
+#### Problem Statement
+```
+You are tasked with designing a Magical Tower for a kingdom. The tower has multiple floors, and each floor is supported by a triangular arrangement of magical stones called the Pascal Stones. These stones have unique properties:
+
+The stones at the edges of the triangle are always marked as 1.
+The inner stones on each floor are infused with power equal to the sum of the two stones directly above them from the previous floor.
+The first floor of the tower contains only a single stone ([1]), and subsequent floors are built according to the rules above. The kingdom's wizard has asked you to construct the first N floors of the Magical Tower.
+
+Your task: Write a program that generates the arrangement of stones for the first N floors of the tower.
+```
+
+![PascalTriangleAnimated2](https://github.com/user-attachments/assets/c7be7eab-bd66-4947-93be-e7874f2670d3)
+
+Sample I/O 1:
+```
+INPUT: numRows=5
+OUTPUT:  [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+```
+Explanation:
+```
+The first 5 floors of the Magical Tower are constructed as follows:
+Floor 1: [1]
+Floor 2: [1, 1]
+Floor 3: [1, 2, 1] → The second stone (2) is created by adding the two stones directly above it (1 + 1).
+Floor 4: [1, 3, 3, 1] → The second stone (3) is created by adding 1 + 2, and the third stone (3) is created by adding 2 + 1.
+Floor 5: [1, 4, 6, 4, 1] → The second stone (4) is created by adding 1 + 3, the third stone (6) by adding 3 + 3, and the fourth stone (4) by adding 3 + 1.
+Each floor is constructed based on the magical rule that the value of each inner stone is the sum of the two stones directly above it.
+```
+Sample I/O 2:
+```
+INPUT:  numRows=1
+OUTPUT: [1]
+```
+
 # FAQ
 
 #### Who can join the Challenge?
