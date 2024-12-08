@@ -33,7 +33,8 @@ Check out our FAQ for more information.
 - [**December 05 - Josephus Problem**](#december-05---josephus-problem)
 - [**December 06 - Target Pair Finder**](#december-06---target-pair-finder)
 - [**December 07 - The Magical Tower**](#december-07---the-magical-tower)
-
+- [**December 08 - Digit Manipulation**](#december-08---digit-manipulation)
+  
 - [**FAQ**](#faq)
 
 ## Algorithms
@@ -350,6 +351,36 @@ Sample I/O 2:
 ```
 INPUT:  numRows=1
 OUTPUT: [1]
+```
+### December 08 - Digit Manipulation
+
+#### Problem Statement
+```
+Write a program to calculate the Digit Square Sum for all numbers from 1 to a given positive integer
+N.
+The Digit Square Sum of a number is calculated by squaring each digit of the number and then
+summing up the squares.
+```
+```
+Your task is to write a function that:
+1. Takes an integer N as input.
+2. Computes the Digit Square Sum for each number from 1 to N.
+3. Returns the total sum of these values.
+```
+
+Example 1:
+```
+For N = 12, the program calculates the following:
+- 1 -> 1^2 = 1
+- 2 -> 2^2 = 4
+- 3 -> 3^2 = 9
+- ...
+- 12 -> 1^2 + 2^2 = 1 + 4 = 5
+```
+```
+The total sum is 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 1 + 4 + 5 = 295.
+Output:
+The program should return the total Digit Square Sum.
 ```
 
 # FAQ
