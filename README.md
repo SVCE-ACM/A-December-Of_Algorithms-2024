@@ -34,6 +34,7 @@ Check out our FAQ for more information.
 - [**December 06 - Target Pair Finder**](#december-06---target-pair-finder)
 - [**December 07 - The Magical Tower**](#december-07---the-magical-tower)
 - [**December 08 - Digit Manipulation**](#december-08---digit-manipulation)
+- [**December 09 - Customer Return Frequency**](#december-09---customer-return-frequency)
   
 - [**FAQ**](#faq)
 
@@ -382,6 +383,43 @@ The total sum is 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 1 + 4 + 5 = 295.
 Output:
 The program should return the total Digit Square Sum.
 ```
+
+
+### December 09 - Customer Return Frequency
+
+#### Problem Statement
+
+```
+You are managing an e-commerce platform and you have a list of customer return
+frequencies (how many times a customer has returned products). Your task is to find the total number of
+customers who have returned products exactly once.
+```
+
+
+Example 1:
+
+```
+Input Format:
+returns = [2, 1, 5, 1, 0, 3, 1, 4, 1]
+Result: 4
+```
+
+```
+Explanation:
+The list returns = [2, 1, 5, 1, 0, 3, 1, 4, 1] represents the return frequency of each customer.
+ We are looking for customers who have returned products exactly once, so we need to count how
+many times 1 appears in the list.
+```
+
+Example 2:
+
+```
+Input Format:
+returns = [4, 3, 7, 2, 1, 0, 2, 1, 3]
+Result: 2
+```
+
+
 
 # FAQ
 
