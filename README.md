@@ -33,6 +33,9 @@ Check out our FAQ for more information.
 - [**December 05 - Josephus Problem**](#december-05---josephus-problem)
 - [**December 06 - Target Pair Finder**](#december-06---target-pair-finder)
 - [**December 07 - The Magical Tower**](#december-07---the-magical-tower)
+- [**December 08 - Digit Manipulation**](#december-08---digit-manipulation)
+- [**December 09 - Customer Return Frequency**](#december-09---customer-return-frequency)
+- [**December 10 - Concurrent Task Execution**](#december-10---concurrent-task-execution)
 
 - [**FAQ**](#faq)
 
@@ -351,7 +354,139 @@ Sample I/O 2:
 INPUT:  numRows=1
 OUTPUT: [1]
 ```
+### December 08 - Digit Manipulation
 
+#### Problem Statement
+```
+Write a program to calculate the Digit Square Sum for all numbers from 1 to a given positive integer
+N.
+The Digit Square Sum of a number is calculated by squaring each digit of the number and then
+summing up the squares.
+```
+```
+Your task is to write a function that:
+1. Takes an integer N as input.
+2. Computes the Digit Square Sum for each number from 1 to N.
+3. Returns the total sum of these values.
+```
+
+Example 1:
+```
+For N = 12, the program calculates the following:
+- 1 -> 1^2 = 1
+- 2 -> 2^2 = 4
+- 3 -> 3^2 = 9
+- ...
+- 12 -> 1^2 + 2^2 = 1 + 4 = 5
+```
+```
+The total sum is 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 1 + 2 + 5 = 293.
+Output:
+The program should return the total Digit Square Sum.
+```
+
+
+### December 09 - Customer Return Frequency
+
+#### Problem Statement
+
+```
+You are managing an e-commerce platform and you have a list of customer return
+frequencies (how many times a customer has returned products). Your task is to find the total number of
+customers who have returned products exactly once.
+```
+
+
+Example 1:
+
+```
+Input Format:
+returns = [2, 1, 5, 1, 0, 3, 1, 4, 1]
+Result: 4
+```
+
+```
+Explanation:
+The list returns = [2, 1, 5, 1, 0, 3, 1, 4, 1] represents the return frequency of each customer.
+ We are looking for customers who have returned products exactly once, so we need to count how
+many times 1 appears in the list.
+```
+
+Example 2:
+
+```
+Input Format:
+returns = [4, 3, 7, 2, 1, 0, 2, 1, 3]
+Result: 2
+```
+### December 10 - Concurrent Task Execution
+#### Problem Statement
+```
+You are given a list of tasks, where each task has a unique identifier and a list of dependencies (other
+tasks that must be completed before this task can be executed). Your goal is to determine a valid
+order to execute the tasks using concurrency wherever possible.
+You must account for the dependencies and ensure no task runs before its dependencies are
+completed. If no valid execution order exists (i.e., there is a cyclic dependency), return an error
+message.
+```
+Input:
+```
+• A list of tasks, where each task is represented as a pair (task_id, dependencies).
+o task_id is a unique identifier for the task (e.g., an integer or string).
+o dependencies is a list of task IDs that must be completed before the given task can
+run.
+```
+Output:
+```
+If a valid task execution order exists, return a list of lists, where each sublist contains the task
+IDs that can be executed concurrently at that step.
+• If no valid order exists (i.e., a circular dependency is found), return the message "Error: Cyclic
+dependency detected".
+```
+
+![image](https://github.com/user-attachments/assets/e848e914-4128-457a-be5b-6f64699b86df)
+
+Sample 1:
+```
+Input:
+tasks = [
+ ("A", []),
+ ("B", ["A"]),
+ ("C", ["A"]),
+ ("D", ["B", "C"]),
+ ("E", ["D"])
+]
+```
+```
+Output:
+[["A"], ["B", "C"], ["D"], ["E"]]
+```
+Explanation:
+```
+• "A" has no dependencies, so it runs first.
+• "B" and "C" both depend only on "A", so they can run concurrently.
+• "D" depends on both "B" and "C", so it runs after them.
+• "E" depends on "D", so it runs last
+```
+Sample 2:
+```
+Input:
+tasks = [
+ ("A", ["B"]),
+ ("B", ["A"])
+]
+```
+```
+Output:
+"Error: Cyclic dependency detected"
+```
+
+Explanation:
+```
+• "A" depends on "B" and "B" depends on "A", creating a cycle.
+```
+
+Reference: For more information on topological sorting and dependency resolution, check out this guide on https://www.geeksforgeeks.org/topological-sorting/
 # FAQ
 
 #### Who can join the Challenge?
