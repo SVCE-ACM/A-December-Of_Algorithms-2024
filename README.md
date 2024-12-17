@@ -34,7 +34,20 @@ Check out our FAQ for more information.
 - [**December 06 - Target Pair Finder**](#december-06---target-pair-finder)
 - [**December 07 - The Magical Tower**](#december-07---the-magical-tower)
 - [**December 08 - Digit Manipulation**](#december-08---digit-manipulation)
+- [**December 09 - Customer Return Frequency**](#december-09---customer-return-frequency)
+- [**December 10 - Concurrent Task Execution**](#december-10---concurrent-task-execution)
+- [**December 11 - The Robot Returns**](#december-11---the-robot-returns)
+- [**December 12 - Smart Ticketing System**](#december-12---smart-ticketing-system)
+- [**December 13 - Minimum Swap Sorting Problem**](#december-13---minimum-swap-sorting-problem)
+- [**December 14 - Split the Squad**](#december-14---split-the-squad)
+- [**December 15 -  Holiday Gift Arrangement**](#december-15---holiday-gift-arrangement)
+- [**December 16 -  Train Platform Calculation**](#december-16---train-platform-calculation)
+
   
+
+
+
+
 - [**FAQ**](#faq)
 
 ## Algorithms
@@ -378,9 +391,393 @@ For N = 12, the program calculates the following:
 - 12 -> 1^2 + 2^2 = 1 + 4 = 5
 ```
 ```
-The total sum is 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 1 + 4 + 5 = 295.
+The total sum is 1 + 4 + 9 + 16 + 25 + 36 + 49 + 64 + 81 + 1 + 2 + 5 = 293.
 Output:
 The program should return the total Digit Square Sum.
+```
+
+
+### December 09 - Customer Return Frequency
+
+#### Problem Statement
+
+```
+You are managing an e-commerce platform and you have a list of customer return
+frequencies (how many times a customer has returned products). Your task is to find the total number of
+customers who have returned products exactly once.
+```
+
+
+Example 1:
+
+```
+Input Format:
+returns = [2, 1, 5, 1, 0, 3, 1, 4, 1]
+Result: 4
+```
+
+```
+Explanation:
+The list returns = [2, 1, 5, 1, 0, 3, 1, 4, 1] represents the return frequency of each customer.
+ We are looking for customers who have returned products exactly once, so we need to count how
+many times 1 appears in the list.
+```
+
+Example 2:
+
+```
+Input Format:
+returns = [4, 3, 7, 2, 1, 0, 2, 1, 3]
+Result: 2
+```
+### December 10 - Concurrent Task Execution
+#### Problem Statement
+```
+You are given a list of tasks, where each task has a unique identifier and a list of dependencies (other
+tasks that must be completed before this task can be executed). Your goal is to determine a valid
+order to execute the tasks using concurrency wherever possible.
+You must account for the dependencies and ensure no task runs before its dependencies are
+completed. If no valid execution order exists (i.e., there is a cyclic dependency), return an error
+message.
+```
+Input:
+```
+• A list of tasks, where each task is represented as a pair (task_id, dependencies).
+o task_id is a unique identifier for the task (e.g., an integer or string).
+o dependencies is a list of task IDs that must be completed before the given task can
+run.
+```
+Output:
+```
+If a valid task execution order exists, return a list of lists, where each sublist contains the task
+IDs that can be executed concurrently at that step.
+• If no valid order exists (i.e., a circular dependency is found), return the message "Error: Cyclic
+dependency detected".
+```
+
+![image](https://github.com/user-attachments/assets/e848e914-4128-457a-be5b-6f64699b86df)
+
+Sample 1:
+```
+Input:
+tasks = [
+ ("A", []),
+ ("B", ["A"]),
+ ("C", ["A"]),
+ ("D", ["B", "C"]),
+ ("E", ["D"])
+]
+```
+```
+Output:
+[["A"], ["B", "C"], ["D"], ["E"]]
+```
+Explanation:
+```
+• "A" has no dependencies, so it runs first.
+• "B" and "C" both depend only on "A", so they can run concurrently.
+• "D" depends on both "B" and "C", so it runs after them.
+• "E" depends on "D", so it runs last
+```
+Sample 2:
+```
+Input:
+tasks = [
+ ("A", ["B"]),
+ ("B", ["A"])
+]
+```
+```
+Output:
+"Error: Cyclic dependency detected"
+```
+
+Explanation:
+```
+• "A" depends on "B" and "B" depends on "A", creating a cycle.
+```
+
+### December 11 - The Robot Returns
+#### Problem Statement
+```
+There is a robot starting at the position (0, 0), the origin, on a 2D plane. Given a
+sequence of its moves, judge if this robot ends up at (0, 0) after it completes its moves.
+You are given a string moves that represents the move sequence of the robot where moves[i] represents
+its i
+th move. Valid moves are 'R' (right), 'L' (left), 'U' (up), and 'D' (down).
+Return true if the robot returns to the origin after it finishes all of its moves, or false otherwise.
+```
+```
+Note: The way that the robot is "facing" is irrelevant. 'R' will always make the robot move to the right
+once, 'L' will always make it move left, etc. Also, assume that the magnitude of the robot's movement is the
+same for each move.
+```
+![image](https://github.com/user-attachments/assets/d6399796-727c-417b-9f6c-c68a4bc21743)
+
+Sample 1:
+```
+Input: moves = "UD"
+Output: true
+Explanation: The robot moves up once, and then down once. All moves have the same magnitude, so it
+ended up at the origin where it started. Therefore, we return true.
+```
+Sample 2:
+```
+Input: moves = "LL"
+Output: false
+Explanation: The robot moves left twice. It ends up two "moves" to the left of the origin. We return false
+because it is not at the origin at the end of its moves.
+```
+Reference: For more information on topological sorting and dependency resolution, check out this guide on https://www.geeksforgeeks.org/topological-sorting/
+
+
+### December 12 - Smart Ticketing System
+#### Problem Statement
+```
+You are tasked with designing a Smart Ticketing System for a popular concert. The system
+manages ticket requests using a queue data structure but with additional complexity:
+1. Priority Handling:
+Some customers are marked as VIPs (designated by a VIP tag in their request). VIP
+customers have higher priority and are served before regular customers, regardless of
+their position in the queue. However, among VIPs or regular customers, the requests are
+handled in the order they are received (FIFO).
+2. Dynamic Ticket Allocation:
+Each request includes the number of tickets the customer wants. If the requested tickets
+exceed the remaining tickets, the system will allocate all remaining tickets to the
+customer.
+3. Queue Operation:
+If a customer receives fewer tickets than requested due to limited availability, the request
+is still considered processed, and the next customer in the queue is served.
+You must implement a program that processes these ticket requests and returns the result of
+each transaction.
+```
+Contraints:
+```
+1. 2. 3. The system starts with N tickets available.
+Each request is represented as a string in the format "CustomerName
+NumberOfTickets [VIP]"
+If [VIP] is not present, the customer is treated as a regular customer.
+Requests are processed until all tickets are sold out or the queue is empty
+```
+Sample 1:
+```
+Input:
+N = 5
+requests = ["John 2 VIP" ,"Alice 3", "Bob 2" , "Charlie 1 VIP"]
+Output:
+["John purchased 2 tickets", "Charlie purchased 1 tickets"
+, "Alice purchased 2 tickets", Bob was not served"]
+Explanation:
+"John 2 VIP" is served first because he is a VIP.
+"Charlie 1 VIP" is served next, as he is also a VIP.
+"Alice 3" is served, but only 2 tickets are left, so she gets 2.
+"Bob 2" cannot be served as there are no tickets remaining.
+```
+Sample 2:
+```
+Input:
+N = 10
+requests = ["Eve 4","Diana 3 VIP","Adam 5","Frank 6 VIP"]
+Output:
+["Diana purchased 3 tickets","Frank purchased 6 tickets","Eve purchased tickets", "Adam was not served"]
+```
+### December 13 - Minimum Swap Sorting Problem
+#### Problem Statement
+```
+John has a list of unique integers that he wants to sort in ascending order.
+However, he can only sort the list by swapping two elements at a time.
+The "cost" of each swap is 1 unit.
+Your task is to determine the minimum cost
+(i.e., the minimum number of swaps required) to sort the list.
+```
+Example 1:
+```
+Sample Input 1:
+5
+4 3 1 2 5
+Sample Output 1:
+3
+```
+Explanation:
+```
+The given list is [4, 3, 1, 2, 5].
+Swap 4 and 1: [1, 3, 4, 2, 5]
+Swap 3 and 2: [1, 2, 4, 3, 5]
+Swap 4 and 3: [1, 2, 3, 4, 5]
+Total swaps = 3. Hence, the minimum cost is 3.
+```
+Example 2:
+```
+Sample Input 2:
+4
+2 3 4 1
+Sample Output 2:
+3
+```
+```
+Input Format:
+The first line contains an integer, N, the total number of integers in the list.
+The second line contains N space-separated integers representing the list.
+Output Format:
+An integer representing the minimum cost (number of swaps) required to sort the list.
+```
+References: This problem is inspired by sorting algorithms and cycle detection in graphs.
+
+### December 14 - Split the Squad
+#### Problem Statement
+```
+Alice has N students in his class, numbered 1 through N. Each student has
+expertise in a subject numbered Ai
+
+. Alice has to divide the students into two
+
+teams Team 1 and Team 2, such that:
+1. Each student belongs to exactly one team.
+
+2. The uniqueness of each team is exactly K.
+
+3. Additionally, the difference in the number of students between the two teams
+must not exceed D.
+```
+```
+The uniqueness of a team is defined as the number of distinct subjects such that
+there is at least one student in the team with expertise in the subject. For
+example, the uniqueness of a team denoted by A = [1, 3, 1, 4, 4] is 3.
+Alice wants to know if it is possible to distribute the students into two teams
+satisfying the conditions.
+```
+```
+Input format
+The first line contains an integer T, the number of test cases.
+For each test case:
+The first line contains three integers N, K, and D.
+The second line contains N integers A1
+,A2
+,....,An
+```
+```
+Output format
+For each test case, print YES if Alice is able to make two teams satisfying the
+given conditions, otherwise print NO.
+```
+```
+Constraints
+
+1 ≤ T ≤ 105
+2 ≤N ≤ 105
+1 ≤ K ≤ N
+1 ≤ D ≤ N
+1 ≤ Ai ≤ N
+```
+![image](https://github.com/user-attachments/assets/3111d8a4-a02d-4804-b7e4-f2257d631abe)
+
+```
+Explanation
+Test Case 1:
+Divide students into Team 1 = [1, 2, 2] and Team 2 = [3, 4, 4]. Both teams have
+a uniqueness of 2, and the difference in the number of students is 0 (≤ 2).
+Output is YES.
+
+Test Case 2:
+No way to divide the students into two teams with both having a uniqueness of
+3 while keeping the size difference ≤ 1.
+Output is NO.
+```
+
+References
+https://www.geeksforgeeks.org/greedy-algorithms
+https://www.geeksforgeeks.org/hashing-data-structure
+
+
+
+### December 15 - Holiday Gift Arrangement
+#### Problem Statement
+```
+It’s December, and Santa is preparing to deliver gifts. He has N houses to visit,
+each requiring a certain number of gifts. Santa’s sleigh can carry a maximum of W gifts at a time.
+You are given:
+	•	An array houses[] where each element represents the number of gifts required at a house.
+	•	The maximum carrying capacity W of Santa’s sleigh.
+Santa needs to minimize the number of trips required to deliver all the gifts.
+Each trip can serve one or more consecutive houses as long as the total number of gifts does not exceed W.
+Write a function minTrips(houses, W) that returns the minimum number of trips Santa needs to deliver the gifts
+Here is an artistic depiction of Santa Claus preparing for his December gift deliveries.
+It captures the festive and cheerful atmosphere with snow-covered houses and a sleigh loaded with gifts.
+```
+Example:
+```
+Input:
+houses = [2, 3, 5, 2, 1]
+W = 6
+Output:
+3
+Explanation:
+	•	Trip 1: Deliver to house 1 and 2 (2 + 3 gifts = 5 ≤ 6).
+	•	Trip 2: Deliver to house 3 (5 gifts = 5 ≤ 6).
+	•	Trip 3: Deliver to house 4 and 5 (2 + 1 gifts = 3 ≤ 6).
+
+```
+Hints:
+```
+Use a greedy approach to group consecutive houses.
+```
+
+### December 16 - Train Platform Calculation
+#### Problem Statement
+```
+We are tasked with determining the minimum number of platforms required at a railway station so that no
+train has to wait for another train to depart. Given the arrival times and departure times of multiple trains,
+the solution must compute how many platforms are required at the station to handle all trains without delay.
+ The input consists of two arrays: arrivals and departures. Each element in arrivals represents the
+arrival time of a train, and the corresponding element in departures represents its departure time.
+ The goal is to calculate the minimum number of platforms required to ensure that no two trains are
+waiting at the same time.
+```
+```
+Constraints
+1. Times are represented in 24-hour format (e.g., 9:00 AM = 900, 11:45 PM = 2345).
+2. Arrival and departure times are sorted or unsorted but paired correctly for each train.
+3. At any point, the number of overlapping intervals (trains at the station) determines the platform
+requirement.
+```
+![image](https://github.com/user-attachments/assets/834a96fa-24d3-45ab-8ef2-cfeb44639432)
+
+Example 1:
+```
+Input: arrivals = [900, 940, 950, 1100, 1500, 1800]
+departures = [910, 1200, 1120, 1130, 1900, 2000]
+Output 1: Minimum platforms required: 1
+```
+
+Explanation
+```
+Input Format
+Two Arrays:
+
+1. arrivals: Contains the arrival times of trains in 24-hour format (e.g., 9:00 AM = 900, 11:45
+PM = 2345).
+2. departures: Contains the corresponding departure times of the same trains in 24-hour format.
+
+One-to-One Mapping:
+1. Each element in arrivals corresponds to the same index in departures. For example:
+2. arrivals[0] is the arrival time of Train 1.
+
+3. departures[0] is the departure time of Train 1.
+Time Constraints:
+
+1. Arrival time is always less than or equal to the departure time for each train.
+2. The arrays can be unsorted but must have the same length.
+Sample Input:
+arrivals = [900, 940, 950, 1100, 1500, 1800] departures = [910, 1200, 1120, 1130, 1900, 2000]
+ Train 1: Arrives at 900, departs at 910.
+ Train 2: Arrives at 940, departs at 1200.
+ Train 3: Arrives at 950, departs at 1120, and so on.
+```
+Example 2:
+```
+Input: arrivals = [1030, 1015, 1045, 1100, 1500, 1530]
+departures = [1040, 1105, 1050, 1130, 1515, 1600]
+Ouput: Minimum platforms required: 2
 ```
 
 # FAQ
