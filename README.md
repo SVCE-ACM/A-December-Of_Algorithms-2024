@@ -38,6 +38,18 @@ Check out our FAQ for more information.
 - [**December 10 - Concurrent Task Execution**](#december-10---concurrent-task-execution)
 - [**December 11 - The Robot Returns**](#december-11---the-robot-returns)
 - [**December 12 - Smart Ticketing System**](#december-12---smart-ticketing-system)
+- [**December 13 - Minimum Swap Sorting Problem**](#december-13---minimum-swap-sorting-problem)
+- [**December 14 - Split the Squad**](#december-14---split-the-squad)
+- [**December 15 -  Holiday Gift Arrangement**](#december-15---holiday-gift-arrangement)
+- [**December 16 -  Train Platform Calculation**](#december-16---train-platform-calculation)
+- [**December 17 -  Cybersecurity Alert Management**](#december-17---cybersecurity-alert-management)
+- [**December 18 -  Howard's Rare Gems**](#december-18---howards-rare-gems)
+
+
+  
+
+
+
 
 - [**FAQ**](#faq)
 
@@ -571,6 +583,275 @@ N = 10
 requests = ["Eve 4","Diana 3 VIP","Adam 5","Frank 6 VIP"]
 Output:
 ["Diana purchased 3 tickets","Frank purchased 6 tickets","Eve purchased tickets", "Adam was not served"]
+```
+### December 13 - Minimum Swap Sorting Problem
+#### Problem Statement
+```
+John has a list of unique integers that he wants to sort in ascending order.
+However, he can only sort the list by swapping two elements at a time.
+The "cost" of each swap is 1 unit.
+Your task is to determine the minimum cost
+(i.e., the minimum number of swaps required) to sort the list.
+```
+Example 1:
+```
+Sample Input 1:
+5
+4 3 1 2 5
+Sample Output 1:
+3
+```
+Explanation:
+```
+The given list is [4, 3, 1, 2, 5].
+Swap 4 and 1: [1, 3, 4, 2, 5]
+Swap 3 and 2: [1, 2, 4, 3, 5]
+Swap 4 and 3: [1, 2, 3, 4, 5]
+Total swaps = 3. Hence, the minimum cost is 3.
+```
+Example 2:
+```
+Sample Input 2:
+4
+2 3 4 1
+Sample Output 2:
+3
+```
+```
+Input Format:
+The first line contains an integer, N, the total number of integers in the list.
+The second line contains N space-separated integers representing the list.
+Output Format:
+An integer representing the minimum cost (number of swaps) required to sort the list.
+```
+References: This problem is inspired by sorting algorithms and cycle detection in graphs.
+
+### December 14 - Split the Squad
+#### Problem Statement
+```
+Alice has N students in his class, numbered 1 through N. Each student has
+expertise in a subject numbered Ai
+
+. Alice has to divide the students into two
+
+teams Team 1 and Team 2, such that:
+1. Each student belongs to exactly one team.
+
+2. The uniqueness of each team is exactly K.
+
+3. Additionally, the difference in the number of students between the two teams
+must not exceed D.
+```
+```
+The uniqueness of a team is defined as the number of distinct subjects such that
+there is at least one student in the team with expertise in the subject. For
+example, the uniqueness of a team denoted by A = [1, 3, 1, 4, 4] is 3.
+Alice wants to know if it is possible to distribute the students into two teams
+satisfying the conditions.
+```
+```
+Input format
+The first line contains an integer T, the number of test cases.
+For each test case:
+The first line contains three integers N, K, and D.
+The second line contains N integers A1
+,A2
+,....,An
+```
+```
+Output format
+For each test case, print YES if Alice is able to make two teams satisfying the
+given conditions, otherwise print NO.
+```
+```
+Constraints
+
+1 ≤ T ≤ 105
+2 ≤N ≤ 105
+1 ≤ K ≤ N
+1 ≤ D ≤ N
+1 ≤ Ai ≤ N
+```
+![image](https://github.com/user-attachments/assets/3111d8a4-a02d-4804-b7e4-f2257d631abe)
+
+```
+Explanation
+Test Case 1:
+Divide students into Team 1 = [1, 2, 2] and Team 2 = [3, 4, 4]. Both teams have
+a uniqueness of 2, and the difference in the number of students is 0 (≤ 2).
+Output is YES.
+
+Test Case 2:
+No way to divide the students into two teams with both having a uniqueness of
+3 while keeping the size difference ≤ 1.
+Output is NO.
+```
+
+References
+https://www.geeksforgeeks.org/greedy-algorithms
+https://www.geeksforgeeks.org/hashing-data-structure
+
+
+
+### December 15 - Holiday Gift Arrangement
+#### Problem Statement
+```
+It’s December, and Santa is preparing to deliver gifts. He has N houses to visit,
+each requiring a certain number of gifts. Santa’s sleigh can carry a maximum of W gifts at a time.
+You are given:
+	•	An array houses[] where each element represents the number of gifts required at a house.
+	•	The maximum carrying capacity W of Santa’s sleigh.
+Santa needs to minimize the number of trips required to deliver all the gifts.
+Each trip can serve one or more consecutive houses as long as the total number of gifts does not exceed W.
+Write a function minTrips(houses, W) that returns the minimum number of trips Santa needs to deliver the gifts
+Here is an artistic depiction of Santa Claus preparing for his December gift deliveries.
+It captures the festive and cheerful atmosphere with snow-covered houses and a sleigh loaded with gifts.
+```
+Example:
+```
+Input:
+houses = [2, 3, 5, 2, 1]
+W = 6
+Output:
+3
+Explanation:
+	•	Trip 1: Deliver to house 1 and 2 (2 + 3 gifts = 5 ≤ 6).
+	•	Trip 2: Deliver to house 3 (5 gifts = 5 ≤ 6).
+	•	Trip 3: Deliver to house 4 and 5 (2 + 1 gifts = 3 ≤ 6).
+
+```
+Hints:
+```
+Use a greedy approach to group consecutive houses.
+```
+
+### December 16 - Train Platform Calculation
+#### Problem Statement
+```
+We are tasked with determining the minimum number of platforms required at a railway station so that no
+train has to wait for another train to depart. Given the arrival times and departure times of multiple trains,
+the solution must compute how many platforms are required at the station to handle all trains without delay.
+ The input consists of two arrays: arrivals and departures. Each element in arrivals represents the
+arrival time of a train, and the corresponding element in departures represents its departure time.
+ The goal is to calculate the minimum number of platforms required to ensure that no two trains are
+waiting at the same time.
+```
+```
+Constraints
+1. Times are represented in 24-hour format (e.g., 9:00 AM = 900, 11:45 PM = 2345).
+2. Arrival and departure times are sorted or unsorted but paired correctly for each train.
+3. At any point, the number of overlapping intervals (trains at the station) determines the platform
+requirement.
+```
+![image](https://github.com/user-attachments/assets/834a96fa-24d3-45ab-8ef2-cfeb44639432)
+
+Example 1:
+```
+Input: arrivals = [900, 940, 950, 1100, 1500, 1800]
+departures = [910, 1200, 1120, 1130, 1900, 2000]
+Output 1: Minimum platforms required: 1
+```
+
+Explanation
+```
+Input Format
+Two Arrays:
+
+1. arrivals: Contains the arrival times of trains in 24-hour format (e.g., 9:00 AM = 900, 11:45
+PM = 2345).
+2. departures: Contains the corresponding departure times of the same trains in 24-hour format.
+
+One-to-One Mapping:
+1. Each element in arrivals corresponds to the same index in departures. For example:
+2. arrivals[0] is the arrival time of Train 1.
+
+3. departures[0] is the departure time of Train 1.
+Time Constraints:
+
+1. Arrival time is always less than or equal to the departure time for each train.
+2. The arrays can be unsorted but must have the same length.
+Sample Input:
+arrivals = [900, 940, 950, 1100, 1500, 1800] departures = [910, 1200, 1120, 1130, 1900, 2000]
+ Train 1: Arrives at 900, departs at 910.
+ Train 2: Arrives at 940, departs at 1200.
+ Train 3: Arrives at 950, departs at 1120, and so on.
+```
+Example 2:
+```
+Input: arrivals = [1030, 1015, 1045, 1100, 1500, 1530]
+departures = [1040, 1105, 1050, 1130, 1515, 1600]
+Ouput: Minimum platforms required: 2
+```
+### December 17 - Cybersecurity Alert Management
+#### Problem Statement
+```
+A cybersecurity company monitors network traffic to detect malicious activities.
+The system uses a hash table to store and manage incoming alerts based on their unique threat IDs.
+Each alert has associated metadata, including timestamp, IP address, and threat level.
+The challenge lies in handling the following constraints efficiently:
+High Throughput: The system must process millions of alerts per second, ensuring minimal latency in storing and retrieving threat IDs.
+Duplicate Alerts: If the same threat ID is received multiple times within 30 seconds, only the first instance should be stored, and subsequent duplicates should be ignored.
+Eviction Policy: Alerts older than 5 minutes must be removed automatically to free up memory.
+Priority Updates: If an alert is updated with a higher threat level, the hash table must reflect the latest information without affecting performance.
+Memory Optimization: Due to limited memory, the system must handle collisions effectively while maintaining a low memory footprint.
+The task is to design the alert management system using a hash table to ensure high efficiency, scalability, and accuracy under the given constraints.
+```
+Sample 1:
+```
+Input:
+Incoming alerts:
+[  {"id": "A123", "timestamp": "00:00:10", "threat_level": 3},  {"id": "A123", "timestamp": "00:00:15", "threat_level": 3},  {"id": "B456", "timestamp": "00:00:20", "threat_level": 2},  {"id": "A123", "timestamp": "00:00:30", "threat_level": 5},  {"id": "B456", "timestamp": "00:05:05", "threat_level": 2}]
+Output:
+Stored alerts:
+[  {"id": "A123", "timestamp": "00:00:30", "threat_level": 5},  {"id": "B456", "timestamp": "00:05:05", "threat_level": 2}]
+Explanation:
+The duplicate alert for A123 within 30 seconds (00:00:15) is ignored.
+The priority of A123 is updated to level 5 (00:00:30).
+Alerts older than 5 minutes are removed (e.g., B456 at 00:00:20).
+```
+Sample 2:
+```
+Input:
+Incoming alerts :
+[  {"id": "X001", "timestamp": "12:00:00", "threat_level": 1},  {"id": "Y002", "timestamp": "12:02:30", "threat_level": 3},  {"id": "X001", "timestamp": "12:02:45", "threat_level": 2},  {"id": "Z003", "timestamp": "12:07:00", "threat_level": 4}]
+Output:
+Stored alerts:
+[  {"id": "Y002", "timestamp": "12:02:30", "threat_level": 3},  {"id": "X001", "timestamp": "12:02:45", "threat_level": 2},  {"id": "Z003", "timestamp": "12:07:00", "threat_level": 4}]
+```
+
+### December 18 - Howard's Rare Gems
+#### Problem Statement
+```
+Howard, a charismatic yet reckless gem dealer, specializes in acquiring rare and exotic gemstones to make huge profits. He thrives on risky deals and has a knack for identifying high-value chains of diamonds, rubies, and emeralds.
+
+Howard knows he can maximize his earnings if he finds chains with a palindromic arrangement of gemstones, as these rare patterns fetch a significantly higher price.
+
+The prices of individual gems are as follows:
+- A diamond (D) is worth $500.
+- A ruby (R) is worth $250.
+- An emerald (E) is worth $100.
+
+For palindromic chains, the total price is multiplied by the chain's length, adding a massive bonus to the profit. Given a long chain of mixed gemstones, Howard must determine the maximum profit he can achieve by cutting out the most valuable palindromic chain.
+
+```
+Example 1:
+```
+Chain: "RDEREDRRRD"
+Output: $7,250
+Explanation: The longest palindromic chain is "RDEREDR", worth $(250 + 500 + 100 + 100 + 500 + 250 + 250) \times 7 = 7,250.
+```
+
+
+Example 2:
+```
+Chain: "DERRREDERREDEREDR"
+Output: $24,000
+Explanation: The longest palindromic chain is "REDERREDER", worth $(250 + 100 + 500 + 250 + 500 + 250 + 500 + 100 + 250 + 250) \times 10 = 24,000.
+```
+
+Hints:
+```
+Use efficient algorithms like Manacher’s Algorithm to identify the longest palindromic substring quickly and calculate the profit.
 ```
 # FAQ
 
