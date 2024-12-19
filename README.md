@@ -44,6 +44,7 @@ Check out our FAQ for more information.
 - [**December 16 -  Train Platform Calculation**](#december-16---train-platform-calculation)
 - [**December 17 -  Cybersecurity Alert Management**](#december-17---cybersecurity-alert-management)
 - [**December 18 -  Howard's Rare Gems**](#december-18---howards-rare-gems)
+- [**December 19 -  Endless Towers**](#december-19---endless-towers)
 
 
   
@@ -853,6 +854,153 @@ Hints:
 ```
 Use efficient algorithms like Manacher’s Algorithm to identify the longest palindromic substring quickly and calculate the profit.
 ```
+
+### December 19 - Endless Towers
+#### Problem Statement
+```
+The King's Challenge Story:
+
+The king has a treasure of golden disks stacked in ascending order of size on a tower ( disk A).
+He wants to move these disks to another tower (disk C). However, to ensure the safety of his treasure:
+
+1. Only one golden disk can be moved at a time.
+
+
+2. A larger golden disk cannot be placed on top of a smaller disk.
+
+
+3. A third tower (disk B) must be used as an intermediate step.
+
+
+
+The king challenges his wisest advisor to find the minimum number of moves to transfer all the disks to Tower C while following these rules.
+
+The Question:
+
+"If the king had 4 disks, what is the minimum number of moves required to complete the task, and what is the sequence of moves ? “
+Here are two sample inputs and outputs for the Tower of Hanoi problem described as the king's challenge:
+```
+Sample 1:
+```
+Number of golden disks: 3
+Towers: A (start), B (helper), C (destination)
+
+Output:
+Minimum number of moves: 7
+Sequence of moves:
+1. Move disk 1 from A to C
+2. Move disk 2 from A to B
+3. Move disk 1 from C to B
+4. Move disk 3 from A to C
+5. Move disk 1 from B to A
+6. Move disk 2 from B to C
+7. Move disk 1 from A to C
+```
+Explanation:
+```
+Initial Setup:
+
+Start tower (A) contains three disks, stacked in ascending size (smallest on top).
+
+Helper tower (B) is empty and will be used as an intermediate step.
+
+Destination tower (C) is where all disks must end up, following the rules:
+
+1. Only one disk can be moved at a time.
+
+
+2. A larger disk cannot be placed on a smaller disk.
+
+
+3. Use all three towers effectively.
+
+
+Steps and Explanation:
+
+1. Move disk 1 from A to C:
+
+The smallest disk is moved directly to the destination tower.
+
+
+
+2. Move disk 2 from A to B:
+
+The second-smallest disk is moved to the helper tower, as the destination is occupied.
+
+
+
+3. Move disk 1 from C to B:
+
+The smallest disk is moved from the destination tower to the helper tower, stacking it on top of disk 2.
+
+
+
+4. Move disk 3 from A to C:
+
+The largest disk is moved directly to the destination tower.
+
+
+
+5. Move disk 1 from B to A:
+
+The smallest disk is moved back to the start tower, freeing up space on the helper tower.
+
+
+
+6. Move disk 2 from B to C:
+
+The second-smallest disk is moved to the destination tower, stacking it on top of the largest disk.
+
+
+
+7. Move disk 1 from A to C:
+
+Finally, the smallest disk is moved to the destination tower, completing the puzzle.
+
+
+
+Final State:
+
+Tower A: Empty
+
+Tower B: Empty
+
+Tower C: All three disks stacked in ascending size (smallest on top).
+
+
+
+Minimum Moves:
+
+The total number of moves is 7, which matches the formula  for .
+```
+Sample 2:
+```
+Number of disks: 4
+Towers: A (start), B (helper), C (destination)
+
+Output:
+Minimum number of moves: 15
+
+Sequence of moves:
+1. Move disk 1 from A to B
+2. Move disk 2 from A to C
+3. Move disk 1 from B to C
+4. Move disk 3 from A to B
+5. Move disk 1 from C to A
+6. Move disk 2 from C to B
+7. Move disk 1 from A to B
+8. Move disk 4 from A to C
+9. Move disk 1 from B to C
+10. Move disk 2 from B to A
+11. Move disk 1 from C to A
+12. Move disk 3 from B to C
+13. Move disk 1 from A to B
+14. Move disk 2 from A to C
+15. Move disk 1 from B to C
+
+```
+
+
 # FAQ
 
 #### Who can join the Challenge?
