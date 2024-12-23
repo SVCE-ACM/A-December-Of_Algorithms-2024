@@ -45,7 +45,9 @@ Check out our FAQ for more information.
 - [**December 17 -  Cybersecurity Alert Management**](#december-17---cybersecurity-alert-management)
 - [**December 18 -  Howard's Rare Gems**](#december-18---howards-rare-gems)
 - [**December 19 -  Endless Towers**](#december-19---endless-towers)
-
+- [**December 20 -  Robot Pathways Problem**](#december-20---robot-pathways-problem)
+- [**December 21 -  The Intersection**](#december-21---the-intersection)
+- [**December 22 -  Earthquake Propagation**](#december-22---earthquake-propagation)
 
   
 
@@ -999,8 +1001,116 @@ Sequence of moves:
 15. Move disk 1 from B to C
 
 ```
+### December 20 - Robot Pathways Problem
+#### Problem Statement
+```
+You are given an integer array steps[] representing different step sizes a robot can take and an integer distance.
+Find the number of distinct ways the robot can reach the exact distance by taking any combination of the given step sizes.
+Note:
+The robot can take any step size from steps[] as many times as needed.
+Steps can be taken in any order.
+```
+Sample:
+```
+Input:
+steps[] = {1, 2, 3}
+distance = 4
+Output:
+7
+```
+Explanation:
+```
+The robot can reach the distance in the following ways:
+(1, 1, 1, 1)
+(1, 1, 2)
+(1, 2, 1)
+(2, 1, 1)
+(2, 2)
+(1, 3)
+(3, 1)
+```
 
+### December 21 - The Intersection
+#### Problem Statement
 
+```
+You are given two singly linked lists that may or may not intersect. Write a program to
+find the value of the node where the two linked lists intersect. If they do not
+intersect, return "No intersection found."
+```
+![image](https://github.com/user-attachments/assets/52c2bf7e-7e2b-4aff-b805-ef4682674b11)
+
+Input Format
+```
+1. Enter the number of nodes in the first linked list N: An integer.
+2. Enter N space-separated node values for the first linked list: The values of the
+nodes.
+3. Enter the number of nodes in the second linked list M: An integer.
+4. Enter M space-separated node values for the second linked list: The values of
+the nodes.
+5. Enter the position (1-indexed) in the first linked list where the second linked
+list intersects (0 if no intersection): An integer.
+```
+Output Format:
+```
+The program should display:
+1. "The intersection point is: <value>" if an intersection exists.
+2. "No intersection found." if the linked lists do not intersect.
+```
+Sample Input 1:
+```
+Enter the number of nodes in the first linked list: 5
+Enter the node values: 1 2 3 4 5
+Enter the number of nodes in the second linked list: 3
+Enter the node values: 6 7 8
+Enter the position of intersection: 3
+```
+Sample Output 1
+```
+The intersection point is: 3
+```
+Sample Input 2:
+```
+Enter the number of nodes in the first linked list: 4
+Enter the node values: 10 20 30 40
+Enter the number of nodes in the second linked list: 3
+Enter the node values: 50 60 70
+Enter the position of intersection: 0
+```
+Sample Output 2:
+```
+No intersection found.
+```
+
+### December 22 - Earthquake Propagation
+#### Problem Statement
+
+```
+You are given a list of buildings in a city, each represented by a 0-indexed 2D integer array buildings[i] = [xi,
+yi, ri]. Here, xi and yi are the coordinates of the building, and ri is the radius of its earthquake shockwave.
+When an earthquake occurs at a building, it will affect all buildings within its radius. The affected buildings
+will further propagate the earthquake shockwave to other buildings within their radius.
+Return the maximum number of buildings that can be affected if you trigger the earthquake at one building.
+```
+![image](https://github.com/user-attachments/assets/18cf62d5-9d59-4e2c-9372-46ec3ffe180d)
+
+Sample I/O 1:
+```
+
+Input: buildings = [[2,1,3],[6,1,4]]
+Output: 2
+Explanation:
+The above figure shows the positions and ranges of the 2
+earthquakes . If an earthquake occurs at the left building, the right
+building will not be affected.But if an earthquake occurs at the
+right building, both buildings will be affected.So the maximum
+number of buildings that can be affected is max(1, 2) = 2.
+```
+Sample I/O 2 :
+```
+Input: buildings = [[1,1,5],[10,10,5]]
+Output: 1
+```
 # FAQ
 
 #### Who can join the Challenge?
