@@ -1,61 +1,36 @@
 section .data
-    houses db 10, 15, 5, 20, 7  ; Example array of gifts per house
-    W db 25                     ; Max weight a person can carry
-
-section .bss
-    trips resb 1                 ; Variable for the number of trips
-    current_load resb 1          ; Variable for the current load
+    trips db 0
+    current_load db 0
+    houses db 10, 20, 30, 40, 50
+    W db 100
 
 section .text
     global _start
 
 _start:
-    ; Initialize variables
-    mov byte [trips], 0         ; trips = 0
-    mov byte [current_load], 0  ; current_load = 0
-    mov ecx, 0                  ; Loop index (ecx will be used for iterating through houses)
-    mov al, [W]                 ; Load the maximum weight W into register al
+    ; Initialize loop counter and pointers
+    mov si, 0                ; SI will serve as an index into the houses array
+    mov al, 0                ; AL will hold the current load
+    mov bl, 0                ; BL will hold the trips count
 
-loop_start:
-    ; Check if we've reached the end of the array (this will depend on the number of houses)
-    ; For this example, we assume the array size is 5 (hardcoded here).
-    cmp ecx, 5
-    jge loop_end                ; If we've checked all houses, jump to loop_end
+.loop_start:
+    mov dl, [houses + si]    ; Load current house gift amount into DL
+    add al, dl               ; Add gift amount to current load
+    cmp al, [W]              ; Compare current load with W
+    jg .new_trip             ; If the load exceeds W, take a new trip
 
-    ; Load the number of gifts in the current house (houses[ecx])
-    movzx edx, byte [houses + ecx]
-    add al, dl                  ; Add the current house gifts to the current load (current_load += gifts)
+    inc si                   ; Move to the next house
+    cmp si, 5                ; Check if we've processed all houses
+    jl .loop_start
+    jmp .done
 
-    ; Check if current load exceeds the max weight (W)
-    cmp al, byte [W]
-    jg new_trip                 ; If current_load > W, we need a new trip
+.new_trip:
+    inc bl                   ; Increment the trip count
+    mov al, dl               ; Reset current load to the current house's gift
+    inc si                   ; Move to the next house
+    cmp si, 5                ; Check if we've processed all houses
+    jl .loop_start
 
-    ; Otherwise, continue to the next house
-    inc ecx
-    jmp loop_start
-
-new_trip:
-    ; Increment trips by 1
-    inc byte [trips]
-
-    ; Reset current load to 0 (start a new trip)
-    mov byte [current_load], 0
-
-    ; Add current gifts to the new trip
-    movzx edx, byte [houses + ecx]
-    add byte [current_load], dl
-
-    ; Continue to the next house
-    inc ecx
-    jmp loop_start
-
-loop_end:
-    ; Final check: if there is remaining load, count another trip
-    cmp byte [current_load], 0
-    je end_program
-    inc byte [trips]            ; If current_load > 0, increment trips
-
-end_program:
-    ; Exit the program
-    mov eax, 1                  ; sys_exit
-    int 0x80                    ; call kernel
+.done:
+    mov eax, 1               ; Exit system call
+    int 0x80
