@@ -48,6 +48,7 @@ Check out our FAQ for more information.
 - [**December 20 -  Robot Pathways Problem**](#december-20---robot-pathways-problem)
 - [**December 21 -  The Intersection**](#december-21---the-intersection)
 - [**December 22 -  Earthquake Propagation**](#december-22---earthquake-propagation)
+- [**December 23 -  Crystal Grid**](#december-23---crystal-grid)
 
   
 
@@ -1111,6 +1112,46 @@ Sample I/O 2 :
 Input: buildings = [[1,1,5],[10,10,5]]
 Output: 1
 ```
+
+### December 23 - Crystal Grid
+#### Problem Statement
+```
+In the ancient kingdom, a mystical Crystal Grid of size N x N (where 1 <= N <= 500) holds secrets of immense power.
+Each cell in the grid contains a magical value. To unlock the grid's energy, the wizard has devised a three-step process based on its structure:
+
+Task 1: The Diagonal Energy Difference
+Extract the Primary Energy Path, which is the sum of magical values along the primary diagonal (from the top-left to the bottom-right of the grid).
+Extract the Secondary Energy Path, which is the sum of magical values along the secondary diagonal (from the top-right to the bottom-left of the grid).
+Calculate the absolute difference between these two paths:
+Diagonal_Energy = |Sum_primary - Sum_secondary|
+
+Task 2: The Boundary Energy
+Calculate the Boundary Energy, which is the sum of all magical values located on the boundary of the grid (the outermost rows and columns).
+
+Task 3: The Final Magical Result
+Combine the results to compute the Final Magical Result:
+Final_Result = Diagonal_Energy + Boundary_Energy
+```
+Sample I/O:
+```
+Crystal Grid (N = 3):
+1 2 3  
+4 5 6  
+7 8 9  
+Diagonal Energy Difference:
+
+Primary Diagonal = 1 + 5 + 9 = 15
+Secondary Diagonal = 3 + 5 + 7 = 15
+Diagonal_Energy = |15 - 15| = 0
+Boundary Energy:
+
+Boundary elements = 1, 2, 3, 4, 6, 7, 8, 9
+Boundary_Energy = 1 + 2 + 3 + 4 + 6 + 7 + 8 + 9 = 40
+Final Magical Result:
+Final_Result = Diagonal_Energy + Boundary_Energy = 0 + 40 = 40
+```
+
+
 # FAQ
 
 #### Who can join the Challenge?
