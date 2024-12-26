@@ -49,6 +49,7 @@ Check out our FAQ for more information.
 - [**December 21 -  The Intersection**](#december-21---the-intersection)
 - [**December 22 -  Earthquake Propagation**](#december-22---earthquake-propagation)
 - [**December 23 -  Crystal Grid**](#december-23---crystal-grid)
+- [**December 24 -  String Permutation Grouping**](#december-24---string-permutation-grouping)
 - [**December 25 -  Task Scheduler**](#december-25---task-scheduler)
 - [**December 26 -  Escape The Lava Field**](#december-26---escape-the-lava-field)
 
@@ -1153,8 +1154,45 @@ Boundary_Energy = 1 + 2 + 3 + 4 + 6 + 7 + 8 + 9 = 40
 Final Magical Result:
 Final_Result = Diagonal_Energy + Boundary_Energy = 0 + 40 = 40
 ```
-
-
+### December 24 - String Permutation Grouping
+#### Problem Statement
+```
+Generate a function that groups the unique permutations of a string based on their
+lexicographical order but extracted in a specific non-standard manner.
+```
+![image](https://github.com/user-attachments/assets/63965430-b425-46de-ad14-0b022631a971)
+```
+1. Given a string s, generate all unique permutations of the string.
+2. A
+er generating the permutations, group them based on their first letter. For
+each letter, list the permutations that start with that letter.
+3. Finally, return a dictionary where each key is the starting letter of the
+permutations, and the value is a list of permutations starting with that letter,
+formatted in lexicographical order.
+```
+Input Format
+```
+● A single string s contains only lowercase letters (1 ≤ length of s ≤ 12). The string
+may contain duplicates.
+```
+Sample Input and Output
+```
+Input 1: abc
+Output 1:
+{
+'a': ['abc', 'acb'],
+'b': ['bac', 'bca'],
+'c': ['cab', 'cba']
+}
+```
+Constraints
+```
+● The function should handle duplicate letters appropriately in the permutations
+(i.e., no duplicate permutations in the output).
+● The output should be sorted for each group in lexicographical order.
+```
+References :
+https://mathworld.wolfram.com/LexicographicOrder.html
 
 
 ### December 25 - Task Scheduler
