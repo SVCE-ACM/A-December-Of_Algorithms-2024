@@ -42,6 +42,16 @@ Check out our FAQ for more information.
 - [**December 14 - Split the Squad**](#december-14---split-the-squad)
 - [**December 15 -  Holiday Gift Arrangement**](#december-15---holiday-gift-arrangement)
 - [**December 16 -  Train Platform Calculation**](#december-16---train-platform-calculation)
+- [**December 17 -  Cybersecurity Alert Management**](#december-17---cybersecurity-alert-management)
+- [**December 18 -  Howard's Rare Gems**](#december-18---howards-rare-gems)
+- [**December 19 -  Endless Towers**](#december-19---endless-towers)
+- [**December 20 -  Robot Pathways Problem**](#december-20---robot-pathways-problem)
+- [**December 21 -  The Intersection**](#december-21---the-intersection)
+- [**December 22 -  Earthquake Propagation**](#december-22---earthquake-propagation)
+- [**December 23 -  Crystal Grid**](#december-23---crystal-grid)
+- [**December 25 -  Task Scheduler**](#december-25---task-scheduler)
+- [**December 26 -  Escape The Lava Field**](#december-26---escape-the-lava-field)
+
 
   
 
@@ -779,6 +789,451 @@ Input: arrivals = [1030, 1015, 1045, 1100, 1500, 1530]
 departures = [1040, 1105, 1050, 1130, 1515, 1600]
 Ouput: Minimum platforms required: 2
 ```
+### December 17 - Cybersecurity Alert Management
+#### Problem Statement
+```
+A cybersecurity company monitors network traffic to detect malicious activities.
+The system uses a hash table to store and manage incoming alerts based on their unique threat IDs.
+Each alert has associated metadata, including timestamp, IP address, and threat level.
+The challenge lies in handling the following constraints efficiently:
+High Throughput: The system must process millions of alerts per second, ensuring minimal latency in storing and retrieving threat IDs.
+Duplicate Alerts: If the same threat ID is received multiple times within 30 seconds, only the first instance should be stored, and subsequent duplicates should be ignored.
+Eviction Policy: Alerts older than 5 minutes must be removed automatically to free up memory.
+Priority Updates: If an alert is updated with a higher threat level, the hash table must reflect the latest information without affecting performance.
+Memory Optimization: Due to limited memory, the system must handle collisions effectively while maintaining a low memory footprint.
+The task is to design the alert management system using a hash table to ensure high efficiency, scalability, and accuracy under the given constraints.
+```
+Sample 1:
+```
+Input:
+Incoming alerts:
+[  {"id": "A123", "timestamp": "00:00:10", "threat_level": 3},  {"id": "A123", "timestamp": "00:00:15", "threat_level": 3},  {"id": "B456", "timestamp": "00:00:20", "threat_level": 2},  {"id": "A123", "timestamp": "00:00:30", "threat_level": 5},  {"id": "B456", "timestamp": "00:05:05", "threat_level": 2}]
+Output:
+Stored alerts:
+[  {"id": "A123", "timestamp": "00:00:30", "threat_level": 5},  {"id": "B456", "timestamp": "00:05:05", "threat_level": 2}]
+Explanation:
+The duplicate alert for A123 within 30 seconds (00:00:15) is ignored.
+The priority of A123 is updated to level 5 (00:00:30).
+Alerts older than 5 minutes are removed (e.g., B456 at 00:00:20).
+```
+Sample 2:
+```
+Input:
+Incoming alerts :
+[  {"id": "X001", "timestamp": "12:00:00", "threat_level": 1},  {"id": "Y002", "timestamp": "12:02:30", "threat_level": 3},  {"id": "X001", "timestamp": "12:02:45", "threat_level": 2},  {"id": "Z003", "timestamp": "12:07:00", "threat_level": 4}]
+Output:
+Stored alerts:
+[  {"id": "Y002", "timestamp": "12:02:30", "threat_level": 3},  {"id": "X001", "timestamp": "12:02:45", "threat_level": 2},  {"id": "Z003", "timestamp": "12:07:00", "threat_level": 4}]
+```
+
+### December 18 - Howard's Rare Gems
+#### Problem Statement
+```
+Howard, a charismatic yet reckless gem dealer, specializes in acquiring rare and exotic gemstones to make huge profits. He thrives on risky deals and has a knack for identifying high-value chains of diamonds, rubies, and emeralds.
+
+Howard knows he can maximize his earnings if he finds chains with a palindromic arrangement of gemstones, as these rare patterns fetch a significantly higher price.
+
+The prices of individual gems are as follows:
+- A diamond (D) is worth $500.
+- A ruby (R) is worth $250.
+- An emerald (E) is worth $100.
+
+For palindromic chains, the total price is multiplied by the chain's length, adding a massive bonus to the profit. Given a long chain of mixed gemstones, Howard must determine the maximum profit he can achieve by cutting out the most valuable palindromic chain.
+
+```
+Example 1:
+```
+Chain: "RDEREDRRRD"
+Output: $7,250
+Explanation: The longest palindromic chain is "RDEREDR", worth $(250 + 500 + 100 + 100 + 500 + 250 + 250) \times 7 = 7,250.
+```
+
+
+Example 2:
+```
+Chain: "DERRREDERREDEREDR"
+Output: $24,000
+Explanation: The longest palindromic chain is "REDERREDER", worth $(250 + 100 + 500 + 250 + 500 + 250 + 500 + 100 + 250 + 250) \times 10 = 24,000.
+```
+
+Hints:
+```
+Use efficient algorithms like Manacher’s Algorithm to identify the longest palindromic substring quickly and calculate the profit.
+```
+
+### December 19 - Endless Towers
+#### Problem Statement
+```
+The King's Challenge Story:
+
+The king has a treasure of golden disks stacked in ascending order of size on a tower ( disk A).
+He wants to move these disks to another tower (disk C). However, to ensure the safety of his treasure:
+
+1. Only one golden disk can be moved at a time.
+
+
+2. A larger golden disk cannot be placed on top of a smaller disk.
+
+
+3. A third tower (disk B) must be used as an intermediate step.
+
+
+
+The king challenges his wisest advisor to find the minimum number of moves to transfer all the disks to Tower C while following these rules.
+
+The Question:
+
+"If the king had 4 disks, what is the minimum number of moves required to complete the task, and what is the sequence of moves ? “
+Here are two sample inputs and outputs for the Tower of Hanoi problem described as the king's challenge:
+```
+Sample 1:
+```
+Number of golden disks: 3
+Towers: A (start), B (helper), C (destination)
+
+Output:
+Minimum number of moves: 7
+Sequence of moves:
+1. Move disk 1 from A to C
+2. Move disk 2 from A to B
+3. Move disk 1 from C to B
+4. Move disk 3 from A to C
+5. Move disk 1 from B to A
+6. Move disk 2 from B to C
+7. Move disk 1 from A to C
+```
+Explanation:
+```
+Initial Setup:
+
+Start tower (A) contains three disks, stacked in ascending size (smallest on top).
+
+Helper tower (B) is empty and will be used as an intermediate step.
+
+Destination tower (C) is where all disks must end up, following the rules:
+
+1. Only one disk can be moved at a time.
+
+
+2. A larger disk cannot be placed on a smaller disk.
+
+
+3. Use all three towers effectively.
+
+
+Steps and Explanation:
+
+1. Move disk 1 from A to C:
+
+The smallest disk is moved directly to the destination tower.
+
+
+
+2. Move disk 2 from A to B:
+
+The second-smallest disk is moved to the helper tower, as the destination is occupied.
+
+
+
+3. Move disk 1 from C to B:
+
+The smallest disk is moved from the destination tower to the helper tower, stacking it on top of disk 2.
+
+
+
+4. Move disk 3 from A to C:
+
+The largest disk is moved directly to the destination tower.
+
+
+
+5. Move disk 1 from B to A:
+
+The smallest disk is moved back to the start tower, freeing up space on the helper tower.
+
+
+
+6. Move disk 2 from B to C:
+
+The second-smallest disk is moved to the destination tower, stacking it on top of the largest disk.
+
+
+
+7. Move disk 1 from A to C:
+
+Finally, the smallest disk is moved to the destination tower, completing the puzzle.
+
+
+
+Final State:
+
+Tower A: Empty
+
+Tower B: Empty
+
+Tower C: All three disks stacked in ascending size (smallest on top).
+
+
+
+Minimum Moves:
+
+The total number of moves is 7, which matches the formula  for .
+```
+Sample 2:
+```
+Number of disks: 4
+Towers: A (start), B (helper), C (destination)
+
+Output:
+Minimum number of moves: 15
+
+Sequence of moves:
+1. Move disk 1 from A to B
+2. Move disk 2 from A to C
+3. Move disk 1 from B to C
+4. Move disk 3 from A to B
+5. Move disk 1 from C to A
+6. Move disk 2 from C to B
+7. Move disk 1 from A to B
+8. Move disk 4 from A to C
+9. Move disk 1 from B to C
+10. Move disk 2 from B to A
+11. Move disk 1 from C to A
+12. Move disk 3 from B to C
+13. Move disk 1 from A to B
+14. Move disk 2 from A to C
+15. Move disk 1 from B to C
+
+```
+### December 20 - Robot Pathways Problem
+#### Problem Statement
+```
+You are given an integer array steps[] representing different step sizes a robot can take and an integer distance.
+Find the number of distinct ways the robot can reach the exact distance by taking any combination of the given step sizes.
+Note:
+The robot can take any step size from steps[] as many times as needed.
+Steps can be taken in any order.
+```
+Sample:
+```
+Input:
+steps[] = {1, 2, 3}
+distance = 4
+Output:
+7
+```
+Explanation:
+```
+The robot can reach the distance in the following ways:
+(1, 1, 1, 1)
+(1, 1, 2)
+(1, 2, 1)
+(2, 1, 1)
+(2, 2)
+(1, 3)
+(3, 1)
+```
+
+### December 21 - The Intersection
+#### Problem Statement
+
+```
+You are given two singly linked lists that may or may not intersect. Write a program to
+find the value of the node where the two linked lists intersect. If they do not
+intersect, return "No intersection found."
+```
+![image](https://github.com/user-attachments/assets/52c2bf7e-7e2b-4aff-b805-ef4682674b11)
+
+Input Format
+```
+1. Enter the number of nodes in the first linked list N: An integer.
+2. Enter N space-separated node values for the first linked list: The values of the
+nodes.
+3. Enter the number of nodes in the second linked list M: An integer.
+4. Enter M space-separated node values for the second linked list: The values of
+the nodes.
+5. Enter the position (1-indexed) in the first linked list where the second linked
+list intersects (0 if no intersection): An integer.
+```
+Output Format:
+```
+The program should display:
+1. "The intersection point is: <value>" if an intersection exists.
+2. "No intersection found." if the linked lists do not intersect.
+```
+Sample Input 1:
+```
+Enter the number of nodes in the first linked list: 5
+Enter the node values: 1 2 3 4 5
+Enter the number of nodes in the second linked list: 3
+Enter the node values: 6 7 8
+Enter the position of intersection: 3
+```
+Sample Output 1
+```
+The intersection point is: 3
+```
+Sample Input 2:
+```
+Enter the number of nodes in the first linked list: 4
+Enter the node values: 10 20 30 40
+Enter the number of nodes in the second linked list: 3
+Enter the node values: 50 60 70
+Enter the position of intersection: 0
+```
+Sample Output 2:
+```
+No intersection found.
+```
+
+### December 22 - Earthquake Propagation
+#### Problem Statement
+
+```
+You are given a list of buildings in a city, each represented by a 0-indexed 2D integer array buildings[i] = [xi,
+yi, ri]. Here, xi and yi are the coordinates of the building, and ri is the radius of its earthquake shockwave.
+When an earthquake occurs at a building, it will affect all buildings within its radius. The affected buildings
+will further propagate the earthquake shockwave to other buildings within their radius.
+Return the maximum number of buildings that can be affected if you trigger the earthquake at one building.
+```
+![image](https://github.com/user-attachments/assets/18cf62d5-9d59-4e2c-9372-46ec3ffe180d)
+
+Sample I/O 1:
+```
+
+Input: buildings = [[2,1,3],[6,1,4]]
+Output: 2
+Explanation:
+The above figure shows the positions and ranges of the 2
+earthquakes . If an earthquake occurs at the left building, the right
+building will not be affected.But if an earthquake occurs at the
+right building, both buildings will be affected.So the maximum
+number of buildings that can be affected is max(1, 2) = 2.
+```
+Sample I/O 2 :
+```
+Input: buildings = [[1,1,5],[10,10,5]]
+Output: 1
+```
+
+### December 23 - Crystal Grid
+#### Problem Statement
+```
+In the ancient kingdom, a mystical Crystal Grid of size N x N (where 1 <= N <= 500) holds secrets of immense power.
+Each cell in the grid contains a magical value. To unlock the grid's energy, the wizard has devised a three-step process based on its structure:
+
+Task 1: The Diagonal Energy Difference
+Extract the Primary Energy Path, which is the sum of magical values along the primary diagonal (from the top-left to the bottom-right of the grid).
+Extract the Secondary Energy Path, which is the sum of magical values along the secondary diagonal (from the top-right to the bottom-left of the grid).
+Calculate the absolute difference between these two paths:
+Diagonal_Energy = |Sum_primary - Sum_secondary|
+
+Task 2: The Boundary Energy
+Calculate the Boundary Energy, which is the sum of all magical values located on the boundary of the grid (the outermost rows and columns).
+
+Task 3: The Final Magical Result
+Combine the results to compute the Final Magical Result:
+Final_Result = Diagonal_Energy + Boundary_Energy
+```
+Sample I/O:
+```
+Crystal Grid (N = 3):
+1 2 3  
+4 5 6  
+7 8 9  
+Diagonal Energy Difference:
+
+Primary Diagonal = 1 + 5 + 9 = 15
+Secondary Diagonal = 3 + 5 + 7 = 15
+Diagonal_Energy = |15 - 15| = 0
+Boundary Energy:
+
+Boundary elements = 1, 2, 3, 4, 6, 7, 8, 9
+Boundary_Energy = 1 + 2 + 3 + 4 + 6 + 7 + 8 + 9 = 40
+Final Magical Result:
+Final_Result = Diagonal_Energy + Boundary_Energy = 0 + 40 = 40
+```
+
+
+
+
+### December 25 - Task Scheduler
+
+#### Problem Statement
+```
+Design a task scheduler using any data structure where each node contains the task
+description and its priority. The tasks should be arranged in the list based on priority
+(highest priority first). Allow for the following operations:
+• Add a new task with priority.
+• Remove a completed task.
+• Search for Task
+• Display the tasks in priority order.
+```
+![image](https://github.com/user-attachments/assets/d4e81a33-06da-4a28-8933-b7b3ed7af25e)
+
+
+Example Input
+```
+• Add task: (”Complete Assignment”, Priority 2)
+• Add task: (”Buy Groceries”, Priority 1)
+• Display: [(”Complete Assignment”, Priority 2), (”Buy Groceries”, Priority 1)]
+• Remove task: ”Complete Assignment”
+• Final list: [(”Buy Groceries”, Priority 1)]
+
+```
+Output Format
+```
+Use a menu driven Task Scheduler.
+```
+Constraints
+```
+• Try to keep Search time in O(k) ,i.e a constant lookup.
+• Program Should be Modular.
+• The program must compute the result within 1 second.
+```
+Notes
+```
+You can create any sort of data structure for the Scheduler but make sure it is self
+balancing based on priority. For achieving constant lookup time during searching check
+out dynamic hashing. Also a bonus criteria would be:
+• Trying to reduce runtime memory.
+• Storing the Scheduler data locally using file system methods.
+```
+
+
+
+### December 26 - ESCAPE THE LAVA FIELD
+
+#### Problem Statement
+```
+You are standing at the edge of a dangerous lava field, represented as an array of stones.
+Each stone has a number written on it, indicating the maximum number of stones you can
+jump forward from that position. Starting from the first stone, determine if it’s possible to
+safely reach the last stone without falling into the lava.
+Problem Statement:-
+Given an array where each element represents the maximum number of steps you can
+jump forward from that element, return true if we can reach the last index starting from the
+first index. Otherwise, return false.
+```
+![image](https://github.com/user-attachments/assets/157af115-b519-4450-8fc2-a9ba768b7b2a)
+
+Example 1:
+```
+Input:nums = [2, 3, 1, 0, 4]
+Output: True
+Explanation:
+We start at index 0, with value 2 this means we can jump to index 1 or 2.
+From index 1, with value 3, we can jump to index 2, 3, or 4. However, if we jump to index 2
+with value 1, we can only jump to index 3.
+So we jump to index 1 then index 4 reaching the end of the array.
+Hence, we return true.
+```
+Example 2:-
+```
+Input:nums = [3, 2, 1, 0, 4]
+Output: False
+```
+
 
 # FAQ
 
