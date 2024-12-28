@@ -54,6 +54,7 @@ Check out our FAQ for more information.
 - [**December 26 -  Escape The Lava Field**](#december-26---escape-the-lava-field)
 - [**December 27 -  Trapping Rain Water**](#december-27---trapping-rain-water)
 - [**December 28 -  Bookshelf Organizer**](#december-28---bookshelf-organizer)
+- [**December 29 -  The Maze of Weighted Portals**](#december-29---the-maze-of-weighted-portals)
 
 
   
@@ -1343,6 +1344,105 @@ P.S: While a O(N*N) solution will be able to handle small test cases,it will fai
 with large enough ones,so can you come up with a solution that can visit
 each element only once,i.e a O(N) solution?
 ```
+### December 29 - The Maze of Weighted Portals
+
+#### Problem Statement
+
+```
+You are given a rectangular grid of size N x M, where each cell represents a
+room. Some rooms are connected by portals with varying weights. Moving
+through a portal costs you a certain weight (energy). Your goal is to move from
+the top-left corner (1,1) to the bottom-right corner (N,M) with the minimum
+total weight possible. However, you have a restriction: you can only use each
+portal at most once.
+Each portal connects exactly two rooms (not necessarily adjacent), and there are
+P portals in total. You can move to neighboring rooms (up, down, left, right) at
+no cost, but the portals are your only means to reduce the distance significantly.
+```
+
+![image](https://github.com/user-attachments/assets/45cbadc6-bcc1-4768-a447-cce3b80893b6)
+
+
+Input Format
+
+```
+1. First line: Two integers N (number of rows) and M (number of columns).
+2. Second line: An integer P (number of portals).
+3. Next P lines: Each line contains four integers: x1, y1, x2, y2, W:
+○ (x1, y1) and (x2, y2) are the grid coordinates of the two rooms
+connected by the portal.
+○ W is the weight of the portal.
+4. Output: An integer representing the minimum total weight to reach (N,
+M) from (1, 1).
+```
+
+Constraints
+
+```
+● 1 ≤ N, M ≤ 50
+● 1 ≤ P ≤ 1000
+● 1 ≤ W ≤ 100
+● You may assume all portals are distinct, and (1, 1) and (N, M) are
+guaranteed to be part of the grid.
+```
+
+Input 1:
+
+```
+4 4
+3
+1 1 2 3 5
+2 3 4 4 2
+1 2 4 1 8
+```
+
+Output 1:
+
+```
+10
+Explanation for Input 1:
+● The grid is 4 x 4.
+● There are 3 portals:
+○ Portal 1 connects (1,1) to (2,3) with a weight of 5.
+○ Portal 2 connects (2,3) to (4,4) with a weight of 2.
+○ Portal 3 connects (1,2) to (4,1) with a weight of 8.
+● Using Portal 1 to go from (1,1) → (2,3), then Portal 2 to go from (2,3)
+→ (4,4) gives the minimum weight path 5 + 2 = 10.
+```
+
+Input 2:
+
+```
+3 3
+2
+1 1 3 3 4
+1 2 2 3 7
+```
+
+Output 2
+
+```
+4
+Approach and Challenges
+1. Graph Representation:
+Represent the grid as a graph where each cell is a node. Portals act as
+weighted edges connecting non-adjacent nodes.
+2. Pathfinding with Constraints:
+Use a modified Dijkstra's algorithm or A* search to find the shortest path.
+Since portals can only be used once, you must maintain state information
+for visited portals.
+3. Optimization:
+Efficiently handle up to 1000 portals and avoid redundant calculations.
+Use priority queues or dynamic programming for optimal performance.
+```
+
+References :
+
+https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+
+https://en.wikipedia.org/wiki/Shortest_path_problem
+
+https://en.wikipedia.org/wiki/A*_search_algorithm
 # FAQ
 
 #### Who can join the Challenge?
