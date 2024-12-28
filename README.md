@@ -49,6 +49,13 @@ Check out our FAQ for more information.
 - [**December 21 -  The Intersection**](#december-21---the-intersection)
 - [**December 22 -  Earthquake Propagation**](#december-22---earthquake-propagation)
 - [**December 23 -  Crystal Grid**](#december-23---crystal-grid)
+- [**December 24 -  String Permutation Grouping**](#december-24---string-permutation-grouping)
+- [**December 25 -  Task Scheduler**](#december-25---task-scheduler)
+- [**December 26 -  Escape The Lava Field**](#december-26---escape-the-lava-field)
+- [**December 27 -  Trapping Rain Water**](#december-27---trapping-rain-water)
+- [**December 28 -  Bookshelf Organizer**](#december-28---bookshelf-organizer)
+- [**December 29 -  The Maze of Weighted Portals**](#december-29---the-maze-of-weighted-portals)
+
 
   
 
@@ -1150,8 +1157,292 @@ Boundary_Energy = 1 + 2 + 3 + 4 + 6 + 7 + 8 + 9 = 40
 Final Magical Result:
 Final_Result = Diagonal_Energy + Boundary_Energy = 0 + 40 = 40
 ```
+### December 24 - String Permutation Grouping
+#### Problem Statement
+```
+Generate a function that groups the unique permutations of a string based on their
+lexicographical order but extracted in a specific non-standard manner.
+```
+![image](https://github.com/user-attachments/assets/63965430-b425-46de-ad14-0b022631a971)
+```
+1. Given a string s, generate all unique permutations of the string.
+2. A
+er generating the permutations, group them based on their first letter. For
+each letter, list the permutations that start with that letter.
+3. Finally, return a dictionary where each key is the starting letter of the
+permutations, and the value is a list of permutations starting with that letter,
+formatted in lexicographical order.
+```
+Input Format
+```
+● A single string s contains only lowercase letters (1 ≤ length of s ≤ 12). The string
+may contain duplicates.
+```
+Sample Input and Output
+```
+Input 1: abc
+Output 1:
+{
+'a': ['abc', 'acb'],
+'b': ['bac', 'bca'],
+'c': ['cab', 'cba']
+}
+```
+Constraints
+```
+● The function should handle duplicate letters appropriately in the permutations
+(i.e., no duplicate permutations in the output).
+● The output should be sorted for each group in lexicographical order.
+```
+References :
+https://mathworld.wolfram.com/LexicographicOrder.html
 
 
+### December 25 - Task Scheduler
+
+#### Problem Statement
+```
+Design a task scheduler using any data structure where each node contains the task
+description and its priority. The tasks should be arranged in the list based on priority
+(highest priority first). Allow for the following operations:
+• Add a new task with priority.
+• Remove a completed task.
+• Search for Task
+• Display the tasks in priority order.
+```
+![image](https://github.com/user-attachments/assets/d4e81a33-06da-4a28-8933-b7b3ed7af25e)
+
+
+Example Input
+```
+• Add task: (”Complete Assignment”, Priority 2)
+• Add task: (”Buy Groceries”, Priority 1)
+• Display: [(”Complete Assignment”, Priority 2), (”Buy Groceries”, Priority 1)]
+• Remove task: ”Complete Assignment”
+• Final list: [(”Buy Groceries”, Priority 1)]
+
+```
+Output Format
+```
+Use a menu driven Task Scheduler.
+```
+Constraints
+```
+• Try to keep Search time in O(k) ,i.e a constant lookup.
+• Program Should be Modular.
+• The program must compute the result within 1 second.
+```
+Notes
+```
+You can create any sort of data structure for the Scheduler but make sure it is self
+balancing based on priority. For achieving constant lookup time during searching check
+out dynamic hashing. Also a bonus criteria would be:
+• Trying to reduce runtime memory.
+• Storing the Scheduler data locally using file system methods.
+```
+
+
+
+### December 26 - Escape The Lava Field
+
+#### Problem Statement
+```
+You are standing at the edge of a dangerous lava field, represented as an array of stones.
+Each stone has a number written on it, indicating the maximum number of stones you can
+jump forward from that position. Starting from the first stone, determine if it’s possible to
+safely reach the last stone without falling into the lava.
+Problem Statement:-
+Given an array where each element represents the maximum number of steps you can
+jump forward from that element, return true if we can reach the last index starting from the
+first index. Otherwise, return false.
+```
+![image](https://github.com/user-attachments/assets/157af115-b519-4450-8fc2-a9ba768b7b2a)
+
+Example 1:
+```
+Input:nums = [2, 3, 1, 0, 4]
+Output: True
+Explanation:
+We start at index 0, with value 2 this means we can jump to index 1 or 2.
+From index 1, with value 3, we can jump to index 2, 3, or 4. However, if we jump to index 2
+with value 1, we can only jump to index 3.
+So we jump to index 1 then index 4 reaching the end of the array.
+Hence, we return true.
+```
+Example 2:-
+```
+Input:nums = [3, 2, 1, 0, 4]
+Output: False
+```
+### December 27 - Trapping Rain Water
+
+#### Problem Statement
+```
+Given an array representing bar heights in an elevation map, compute the total units of
+water trapped between bars after raining. The width of each bar is 1. Return the total
+trapped water.
+Problem Statement:-
+Given n non-negative integers representing an elevation map where the width of each bar
+is 1, compute how much water it can trap after raining.
+```
+Example 1:
+```
+Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+Output: 6
+Explanation: The above elevation map (black section) is represented
+by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water
+(blue section) are being trapped.
+```
+Example 2:-
+```
+Input: height =
+[4,2,0,3,2,5]
+Output: 9
+```
+### December 28 - Bookshelf Organizer
+
+#### Problem Statement
+
+```
+Sonny has several books and wants to organize them into shelves such
+that each shelf contains exactly shelfSize books, and the books on each
+shelf are arranged in sequential order based on their assigned numbers.
+Given an integer array books where books[i] represents the number on the
+ith book and an integer shelfSize, return true if he can organize the books
+this way, or false otherwise.
+```
+
+SAMPLE TEST CASE:
+
+```
+INPUT:
+books = [1, 2, 3, 6, 2, 3, 4, 7, 8]
+shelfSize = 3
+One possible arrangement is:
+Group 1: [1, 2, 3]
+Group 2: [2, 3, 4]
+Group 3: [6, 7, 8]
+OUTPUT:
+So,you return true
+If not possible,you return false.
+```
+
+SAMPLE TEST CASE 2:
+
+```
+books = [1, 2, 3, 4, 5]
+shelfSize = 4
+One possible arrangement is:
+[1, 2, 3, 4]
+But we can’t allot a shelf for the book 5.
+OUTPUT:
+So,you need to return false.
+```
+
+```
+P.S: While a O(N*N) solution will be able to handle small test cases,it will fail
+with large enough ones,so can you come up with a solution that can visit
+each element only once,i.e a O(N) solution?
+```
+### December 29 - The Maze of Weighted Portals
+
+#### Problem Statement
+
+```
+You are given a rectangular grid of size N x M, where each cell represents a
+room. Some rooms are connected by portals with varying weights. Moving
+through a portal costs you a certain weight (energy). Your goal is to move from
+the top-left corner (1,1) to the bottom-right corner (N,M) with the minimum
+total weight possible. However, you have a restriction: you can only use each
+portal at most once.
+Each portal connects exactly two rooms (not necessarily adjacent), and there are
+P portals in total. You can move to neighboring rooms (up, down, left, right) at
+no cost, but the portals are your only means to reduce the distance significantly.
+```
+
+![image](https://github.com/user-attachments/assets/45cbadc6-bcc1-4768-a447-cce3b80893b6)
+
+
+Input Format
+
+```
+1. First line: Two integers N (number of rows) and M (number of columns).
+2. Second line: An integer P (number of portals).
+3. Next P lines: Each line contains four integers: x1, y1, x2, y2, W:
+○ (x1, y1) and (x2, y2) are the grid coordinates of the two rooms
+connected by the portal.
+○ W is the weight of the portal.
+4. Output: An integer representing the minimum total weight to reach (N,
+M) from (1, 1).
+```
+
+Constraints
+
+```
+● 1 ≤ N, M ≤ 50
+● 1 ≤ P ≤ 1000
+● 1 ≤ W ≤ 100
+● You may assume all portals are distinct, and (1, 1) and (N, M) are
+guaranteed to be part of the grid.
+```
+
+Input 1:
+
+```
+4 4
+3
+1 1 2 3 5
+2 3 4 4 2
+1 2 4 1 8
+```
+
+Output 1:
+
+```
+10
+Explanation for Input 1:
+● The grid is 4 x 4.
+● There are 3 portals:
+○ Portal 1 connects (1,1) to (2,3) with a weight of 5.
+○ Portal 2 connects (2,3) to (4,4) with a weight of 2.
+○ Portal 3 connects (1,2) to (4,1) with a weight of 8.
+● Using Portal 1 to go from (1,1) → (2,3), then Portal 2 to go from (2,3)
+→ (4,4) gives the minimum weight path 5 + 2 = 10.
+```
+
+Input 2:
+
+```
+3 3
+2
+1 1 3 3 4
+1 2 2 3 7
+```
+
+Output 2
+
+```
+4
+Approach and Challenges
+1. Graph Representation:
+Represent the grid as a graph where each cell is a node. Portals act as
+weighted edges connecting non-adjacent nodes.
+2. Pathfinding with Constraints:
+Use a modified Dijkstra's algorithm or A* search to find the shortest path.
+Since portals can only be used once, you must maintain state information
+for visited portals.
+3. Optimization:
+Efficiently handle up to 1000 portals and avoid redundant calculations.
+Use priority queues or dynamic programming for optimal performance.
+```
+
+References :
+
+https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+
+https://en.wikipedia.org/wiki/Shortest_path_problem
+
+https://en.wikipedia.org/wiki/A*_search_algorithm
 # FAQ
 
 #### Who can join the Challenge?
