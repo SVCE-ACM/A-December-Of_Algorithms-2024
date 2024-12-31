@@ -53,6 +53,10 @@ Check out our FAQ for more information.
 - [**December 25 -  Task Scheduler**](#december-25---task-scheduler)
 - [**December 26 -  Escape The Lava Field**](#december-26---escape-the-lava-field)
 - [**December 27 -  Trapping Rain Water**](#december-27---trapping-rain-water)
+- [**December 28 -  Bookshelf Organizer**](#december-28---bookshelf-organizer)
+- [**December 29 -  The Maze of Weighted Portals**](#december-29---the-maze-of-weighted-portals)
+- [**December 30 -  Super Egg Drop**](#december-30---super-egg-drop)
+- [**December 31 -  Speed Of Light Simulation**](#december-31---speed-of-light-simulation)
 
 
   
@@ -1297,6 +1301,268 @@ Input: height =
 [4,2,0,3,2,5]
 Output: 9
 ```
+### December 28 - Bookshelf Organizer
+
+#### Problem Statement
+
+```
+Sonny has several books and wants to organize them into shelves such
+that each shelf contains exactly shelfSize books, and the books on each
+shelf are arranged in sequential order based on their assigned numbers.
+Given an integer array books where books[i] represents the number on the
+ith book and an integer shelfSize, return true if he can organize the books
+this way, or false otherwise.
+```
+
+SAMPLE TEST CASE:
+
+```
+INPUT:
+books = [1, 2, 3, 6, 2, 3, 4, 7, 8]
+shelfSize = 3
+One possible arrangement is:
+Group 1: [1, 2, 3]
+Group 2: [2, 3, 4]
+Group 3: [6, 7, 8]
+OUTPUT:
+So,you return true
+If not possible,you return false.
+```
+
+SAMPLE TEST CASE 2:
+
+```
+books = [1, 2, 3, 4, 5]
+shelfSize = 4
+One possible arrangement is:
+[1, 2, 3, 4]
+But we can’t allot a shelf for the book 5.
+OUTPUT:
+So,you need to return false.
+```
+
+```
+P.S: While a O(N*N) solution will be able to handle small test cases,it will fail
+with large enough ones,so can you come up with a solution that can visit
+each element only once,i.e a O(N) solution?
+```
+### December 29 - The Maze of Weighted Portals
+
+#### Problem Statement
+
+```
+You are given a rectangular grid of size N x M, where each cell represents a
+room. Some rooms are connected by portals with varying weights. Moving
+through a portal costs you a certain weight (energy). Your goal is to move from
+the top-left corner (1,1) to the bottom-right corner (N,M) with the minimum
+total weight possible. However, you have a restriction: you can only use each
+portal at most once.
+Each portal connects exactly two rooms (not necessarily adjacent), and there are
+P portals in total. You can move to neighboring rooms (up, down, left, right) at
+no cost, but the portals are your only means to reduce the distance significantly.
+```
+
+![image](https://github.com/user-attachments/assets/45cbadc6-bcc1-4768-a447-cce3b80893b6)
+
+
+Input Format
+
+```
+1. First line: Two integers N (number of rows) and M (number of columns).
+2. Second line: An integer P (number of portals).
+3. Next P lines: Each line contains four integers: x1, y1, x2, y2, W:
+○ (x1, y1) and (x2, y2) are the grid coordinates of the two rooms
+connected by the portal.
+○ W is the weight of the portal.
+4. Output: An integer representing the minimum total weight to reach (N,
+M) from (1, 1).
+```
+
+Constraints
+
+```
+● 1 ≤ N, M ≤ 50
+● 1 ≤ P ≤ 1000
+● 1 ≤ W ≤ 100
+● You may assume all portals are distinct, and (1, 1) and (N, M) are
+guaranteed to be part of the grid.
+```
+
+Input 1:
+
+```
+4 4
+3
+1 1 2 3 5
+2 3 4 4 2
+1 2 4 1 8
+```
+
+Output 1:
+
+```
+10
+Explanation for Input 1:
+● The grid is 4 x 4.
+● There are 3 portals:
+○ Portal 1 connects (1,1) to (2,3) with a weight of 5.
+○ Portal 2 connects (2,3) to (4,4) with a weight of 2.
+○ Portal 3 connects (1,2) to (4,1) with a weight of 8.
+● Using Portal 1 to go from (1,1) → (2,3), then Portal 2 to go from (2,3)
+→ (4,4) gives the minimum weight path 5 + 2 = 10.
+```
+
+Input 2:
+
+```
+3 3
+2
+1 1 3 3 4
+1 2 2 3 7
+```
+
+Output 2
+
+```
+4
+Approach and Challenges
+1. Graph Representation:
+Represent the grid as a graph where each cell is a node. Portals act as
+weighted edges connecting non-adjacent nodes.
+2. Pathfinding with Constraints:
+Use a modified Dijkstra's algorithm or A* search to find the shortest path.
+Since portals can only be used once, you must maintain state information
+for visited portals.
+3. Optimization:
+Efficiently handle up to 1000 portals and avoid redundant calculations.
+Use priority queues or dynamic programming for optimal performance.
+```
+### December 30 - Super Egg Drop
+
+#### Problem Statement
+
+```
+You are tasked with finding the critical floor in a building with n floors using k identical eggs. The critical
+floor, fff, is defined as the highest floor where an egg does not break when dropped. The following rules
+apply:
+If an egg is dropped from floor xxx:
+It breaks if x>fx > fx>f.
+It does not break if x≤fx \leq fx≤f.
+Objective:
+Minimize the maximum number of moves required to determine the critical floor fff with certainty.
+Constraints:
+If an egg breaks, it can no longer be used.
+If an egg does not break, it can be reused for subsequent drops.
+You may drop eggs from any floor between 1 and nnn.
+Goal:
+Determine the minimum number of moves required to guarantee the discovery of fff, regardless of the initial position of fff .
+```
+![image](https://github.com/user-attachments/assets/b005f7c4-637f-46bb-a80b-934f04bf0bf2)
+
+Sample I/O 1:
+
+```
+Input: k = 2 (eggs), n = 6 (floors)
+Output 1: Minimum moves required = 3
+```
+
+Explanation of input format 1:
+
+```
+The input for this problem consists of two integers:
+1. Number of Eggs (kkk):
+o Represents the total number of identical eggs available for testing.
+o Each egg can either break or remain intact when dropped from a floor.
+o If an egg breaks, it cannot be reused in further tests.
+2. Number of Floors (nnn):
+o Represents the total number of floors in the building, labeled from 1 to nnn.
+o The goal is to find the critical floor fff (where 0≤f≤n0 \leq f \leq n0≤f≤n) using the minimum
+number of moves.
+
+Key Characteristics of Input:
+1. Both kkk (number of eggs) and nnn (number of floors) are positive integers:
+o 1≤k≤1001 \leq k \leq 1001≤k≤100
+Meaning of k=1k = 1k=1:
+ If there is only one egg, it can be tested sequentially from the first floor upwards until it breaks. In
+this case, the worst-case number of moves is equal to nnn.
+Meaning of n=1n = 1n=1:
+ If there is only one floor, the critical floor is either floor 1 or floor 0 (no breaking). Only one move is
+needed.
+```
+Sample I/O 2:
+
+```
+Input: k = 3 (eggs), n = 14 (floors)
+Ouput: Minimum moves required = 4
+```
+![image](https://github.com/user-attachments/assets/7dbd12bd-2d4c-4d53-a566-f65102af7d27)
+
+References :
+
+https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+
+https://en.wikipedia.org/wiki/Shortest_path_problem
+
+https://en.wikipedia.org/wiki/A*_search_algorithm
+
+
+### December 31 - Speed of Light Simulation
+
+#### Problem Statement
+```
+You are designing a physics simulation where the speed of light needs to be
+ approximated efficiently. The simulation requires calculating the normalized
+ velocity vectors of particles in real-time. Given `n` particles with their
+ initial velocity components, devise an algorithm to compute their normalized
+velocities within strict time constraints. You can't use division in the algorithm
+ as it is a slow system-independent process.
+
+```
+
+
+## Input Format
+
+![image](https://github.com/user-attachments/assets/0418e03c-b303-4f82-bf4d-dff3cd751301)
+
+## Output Format
+Output `n` lines, each containing three floating-point numbers representing the normalized velocity vector of the `i`-th particle:
+
+![image](https://github.com/user-attachments/assets/daac15d2-f2aa-40ea-af56-fd3ec3338a65)
+
+![image](https://github.com/user-attachments/assets/7f80c1ac-4de8-46b4-b76a-2ff52b1a242b)
+
+## Constraints
+
+![image](https://github.com/user-attachments/assets/dad67bbc-c7e2-4e03-8a9b-89b5e78e1340)
+
+## Notes
+```
+Division is not allowed. To achieve the required performance, traditional square root
+ computations may not suffice for large `n`. Consider optimizing your solution using 
+approximation techniques such as Newton's method and try using bit manipulation based on
+ the IEEE 754 format. For more pointers, look for the Quake III algorithm.
+
+```
+## Example Input
+
+```
+vec1:  3  4  0
+vec2: -6  8  0
+vec3:  5  12 0
+
+```
+## Example Output
+
+```
+normalised vec1:  0.6      0.8      0.0
+normalised vec2: -0.6      0.8      0.0
+normalised vec3:  0.384615 0.923077 0.0
+
+```
+## Edge Cases
+
+![image](https://github.com/user-attachments/assets/0c83f6d1-9cfb-4434-9080-816e7f8cdde8)
+
 # FAQ
 
 #### Who can join the Challenge?
