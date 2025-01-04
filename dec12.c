@@ -37,5 +37,6 @@ int main(){
         }if(tot<=0) break;
     } 
     for(i=0;i<n;i++) if(ticket[i]!=0) printf("%s was not served\n",name[i]);
+    return 0;
 }
 
