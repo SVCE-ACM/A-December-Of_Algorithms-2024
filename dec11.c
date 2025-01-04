@@ -15,5 +15,6 @@ int main(){
     }
     if(count==0) printf("robot came to original position");
     else printf("robot didn't reach it's original position");
+    return 0;
 }
 
