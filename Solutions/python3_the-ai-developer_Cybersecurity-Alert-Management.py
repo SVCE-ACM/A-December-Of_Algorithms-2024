@@ -19,9 +19,11 @@ class AlertManager:
             stored_alert = self.alerts[alert_id]
             stored_time = stored_alert["timestamp"]
 
+            # Ignore alert if it's within 30 seconds
             if timestamp - stored_time <= timedelta(seconds=30):
                 return
 
+            # Update threat level if higher
             if threat_level > stored_alert["threat_level"]:
                 self.alerts[alert_id]["threat_level"] = threat_level
                 self.alerts[alert_id]["timestamp"] = timestamp
@@ -32,12 +34,22 @@ class AlertManager:
         current_time = self.parse_timestamp(current_time)
         ids_to_remove = []
 
+        print("\n[DEBUG] Current Time:", current_time)
+        print("[DEBUG] Stored Alerts Before Eviction:")
+        for alert_id, data in self.alerts.items():
+            print(f"  - ID: {alert_id}, Timestamp: {data['timestamp']}, Threat Level: {data['threat_level']}")
+
         for alert_id, data in self.alerts.items():
             if current_time - data["timestamp"] > timedelta(minutes=5):
+                print(f"[DEBUG] Evicting Alert ID: {alert_id} (Timestamp: {data['timestamp']})")
                 ids_to_remove.append(alert_id)
 
         for alert_id in ids_to_remove:
             del self.alerts[alert_id]
+
+        print("[DEBUG] Stored Alerts After Eviction:")
+        for alert_id, data in self.alerts.items():
+            print(f"  - ID: {alert_id}, Timestamp: {data['timestamp']}, Threat Level: {data['threat_level']}")
 
     def get_stored_alerts(self):
         result = []
