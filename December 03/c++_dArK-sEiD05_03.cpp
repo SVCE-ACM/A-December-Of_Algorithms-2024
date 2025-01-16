@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 int main() {
-    // Write C++ code here
+    
    int r,b;
    cout<<"Enter red boxes:";
    cin>>r;
