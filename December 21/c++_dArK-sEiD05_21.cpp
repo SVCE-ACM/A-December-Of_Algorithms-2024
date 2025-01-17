@@ -2,14 +2,14 @@
 #include <iostream>
 using namespace std;
 
-// Definition of a Node in the linked list
+
 struct Node {
     int data;
     Node* next;
     Node(int val) : data(val), next(nullptr) {}
 };
 
-// Function to create a linked list from an array of values
+
 Node* createLinkedList(int arr[], int size) {
     if (size == 0) return nullptr;
     Node* head = new Node(arr[0]);
@@ -20,10 +20,8 @@ Node* createLinkedList(int arr[], int size) {
     }
     return head;
 }
-
-// Function to attach the second list at a specific position in the first list
 void attachLists(Node* list1, Node* list2, int position) {
-    if (position == 0) return; // No intersection
+    if (position == 0) return; 
     Node* current = list1;
     for (int i = 1; i < position && current != nullptr; ++i) {
         current = current->next;
@@ -38,7 +36,7 @@ void attachLists(Node* list1, Node* list2, int position) {
 }
 
 int main() {
-    // Input for the first linked list
+ 
     int n;
     cout << "Enter the number of nodes in the first linked list: ";
     cin >> n;
@@ -47,8 +45,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> arr1[i];
     }
-
-    // Input for the second linked list
     int m;
     cout << "Enter the number of nodes in the second linked list: ";
     cin >> m;
@@ -57,17 +53,14 @@ int main() {
     for (int i = 0; i < m; ++i) {
         cin >> arr2[i];
     }
-
-    // Input for the intersection position
     int pos;
     cout << "Enter the position of intersection (0 if no intersection): ";
     cin >> pos;
 
-    // Create linked lists
+ 
     Node* list1 = createLinkedList(arr1, n);
     Node* list2 = createLinkedList(arr2, m);
 
-    // Attach the second list to the first at the given position
     attachLists(list1, list2, pos);
 
     if (pos == 0) {
