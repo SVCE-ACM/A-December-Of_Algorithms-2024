@@ -1,4 +1,4 @@
-//(14) split the sq
+//(14) split the sq:
 #include <stdio.h>
 #include <stdlib.h>
 
