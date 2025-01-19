@@ -1,4 +1,4 @@
-//(24) String Permutation Grouping
+//(24) String Permutation Grouping:
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
