@@ -1,4 +1,4 @@
-//(2) The Wave Sort Challenge-><><
+//(2) The Wave Sort Challenge-><><:
 #include<stdio.h>
 void swap(int *x,int*y){
     int t=*x;
