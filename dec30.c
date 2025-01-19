@@ -1,4 +1,4 @@
-//(30) Super Egg Drop
+//(30) Super Egg Drop:
 #include <stdio.h>
 #include <stdlib.h>
 
