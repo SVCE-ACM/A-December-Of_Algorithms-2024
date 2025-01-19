@@ -1,4 +1,4 @@
-//(23) Crystal Grid
+//(23) Crystal Grid:
 #include <stdio.h>
 #include <stdlib.h>
 
