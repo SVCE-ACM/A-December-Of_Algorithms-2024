@@ -1,4 +1,4 @@
-//(5) Josephus Problem
+//(5) Josephus Problem:
 #include<stdio.h>
 int Josephus(int n,int k){
     if(n==1) return 0;
