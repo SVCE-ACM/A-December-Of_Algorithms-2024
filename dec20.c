@@ -1,4 +1,4 @@
-//(20) Robot Pathways Problem
+//(20) Robot Pathways Problem:
 #include <stdio.h>
 
 int count_ways(int* steps, int n, int distance) {
