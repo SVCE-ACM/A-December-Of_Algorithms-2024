@@ -1,4 +1,4 @@
-//(15) Holiday Gift Arrangement
+//(15) Holiday Gift Arrangement:
 #include <stdio.h>
 #include <stdlib.h>
 
