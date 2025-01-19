@@ -1,4 +1,4 @@
-//(29) The Maze of Weighted Portals
+//(29) The Maze of Weighted Portals:
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
