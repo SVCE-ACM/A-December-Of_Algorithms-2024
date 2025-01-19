@@ -1,4 +1,4 @@
-//(9) customer return frequency
+//(9) customer return frequency:
 #include<stdio.h>
 int main(){
     int num,arr[100],count=0,i;
