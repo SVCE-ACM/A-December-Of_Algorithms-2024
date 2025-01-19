@@ -1,4 +1,4 @@
-//(18) Howard's Rare Gems
+//(18) Howard's Rare Gems:
 #include <stdio.h>
 #include <string.h>
 
