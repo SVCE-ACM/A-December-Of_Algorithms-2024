@@ -1,4 +1,4 @@
-//(31) Speed of Light Simulation
+//(31) Speed of Light Simulation:
 #include <stdio.h>
 #include <math.h>
 
