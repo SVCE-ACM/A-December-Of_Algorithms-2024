@@ -1,4 +1,4 @@
-//(27) Trapping Rain Water
+//(27) Trapping Rain Water:
 #include <stdio.h>
 
 int trap(int* height, int heightSize) {
