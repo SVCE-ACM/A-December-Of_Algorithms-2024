@@ -1,4 +1,4 @@
-//(3) Alternating Square Arrangement
+//(3) Alternating Square Arrangement:
 #include<stdio.h>
 int main(){
     int r,b,i;
