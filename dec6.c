@@ -1,4 +1,4 @@
-//(6) Target Pair Finder
+//(6) Target Pair Finder:
 #include<stdio.h>
 int main(){
     int i,n,sum,a[100];
