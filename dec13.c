@@ -1,4 +1,4 @@
-//(13) minimum swap sorting problem-Selection sort
+//(13) minimum swap sorting problem-Selection sort:
 #include<stdio.h>
 int s=0;
 void swap(int *a,int *b){
