@@ -1,4 +1,4 @@
-//(16) Train Platform Calculation
+//(16) Train Platform Calculation:
 #include <stdio.h>
 #include <stdlib.h>
 
