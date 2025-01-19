@@ -1,4 +1,4 @@
-//(1) The Vanishing Number-missing num
+//(1) The Vanishing Number-missing num:
 #include<stdio.h>
 int N,arr[100],i,j,m;
 int main(){
