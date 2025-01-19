@@ -1,4 +1,4 @@
-//(8) digit manipulation
+//(8) digit manipulation:
 #include<stdio.h>
 int main(){
     int n,s=0;
