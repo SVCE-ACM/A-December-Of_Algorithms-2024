@@ -1,4 +1,4 @@
-//(22) Earthquake Propagation
+//(22) Earthquake Propagation:
 #include <stdio.h>
 #include <math.h>
 
