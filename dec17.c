@@ -1,4 +1,4 @@
-//(17) Cybersecurity Alert Management
+//(17) Cybersecurity Alert Management:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
