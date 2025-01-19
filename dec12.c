@@ -1,4 +1,4 @@
-//(12) Smart Ticketing System
+//(12) Smart Ticketing System:
 #include<stdio.h>
 #include<string.h>
 int main(){
