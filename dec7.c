@@ -1,4 +1,4 @@
-//(7) The Magical Tower-pascals triangle
+//(7) The Magical Tower-pascals triangle:
 #include<stdio.h>
 int main(){
     int n,a[100][100];
