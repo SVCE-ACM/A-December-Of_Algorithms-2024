@@ -1,4 +1,4 @@
-//(4) Plant Growth Tracker-fibonacci series
+//(4) Plant Growth Tracker-fibonacci series:
 #include<stdio.h>
 int main(){
     int n,i,f=1,s=1,t;
