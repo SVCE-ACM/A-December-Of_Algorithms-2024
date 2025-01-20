@@ -14,6 +14,5 @@ fun canSplitSquad(N: Int, K: Int, D: Int, A: List<Int>): String {
     if (subjectCounts.values.count { it <= minTeamSize } < K) {
         return "NO"
     }
-
     return "YES"
 }
