@@ -1,0 +1,41 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        List<Integer>l1=new ArrayList<>();
+        for(int i=0;i<n;i++)
+        {
+            l1.add(s.nextInt());
+        }
+        solution(l1);
+    }
+    public static void solution(List<Integer>l1)
+    {
+        int s,pre=0,c=0,j,x=0;
+        for(int i=0;i<l1.size()-1;i++)
+        {
+            s=l1.get(i);
+            x=i;
+            for(j=i+1;j<l1.size();j++)
+            {
+                if(s>l1.get(j))
+            {
+                s=l1.get(j);
+                x=j;
+            }
+            }
+           if(s!=pre && i != x&& swap(i,x,l1))
+            c++;
+            pre=s;
+        }
+        System.out.print(c);
+    }
+    public static boolean swap(int i,int j,List<Integer>l1)
+    {
+        int temp = l1.get(i); 
+        l1.set(i, l1.get(j)); 
+        l1.set(j, temp);
+        return true;
+    }
+}
