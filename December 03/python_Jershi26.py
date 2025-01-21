@@ -2,26 +2,16 @@ def arrange_squares(R, B):
     if abs(R - B) > 1:
         return "Not possible"
     
-    result = []
-    red = 'R'
-    blue = 'B'
-    
-    if R > B:
-        primary, secondary = red, blue
-    else:
-        primary, secondary = blue, red
-
+    result = ""
     while R > 0 or B > 0:
-        if R > 0 and (len(result) == 0 or result[-1] != red):
-            result.append(red)
+        if R >= B:  
+            result += 'R' 
             R -= 1
-        elif B > 0 and (len(result) == 0 or result[-1] != blue):
-            result.append(blue)
+        if B > 0:  
+            result += 'B' 
             B -= 1
-        else:
-            return "Not possible"
-    
-    return "".join(result)
 
-print(arrange_squares(3, 2)) 
-print(arrange_squares(4, 2)) 
+    return result
+
+print(arrange_squares(5, 4))  
+print(arrange_squares(4, 2))  
