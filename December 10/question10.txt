@@ -1,0 +1,59 @@
+from collections import defaultdict
+
+def find_concurrent_jobs(tasks):
+    graph = defaultdict(list)
+    for task, dependencies in tasks:
+        graph[task].extend(dependencies)
+
+    level_map = {}
+    visited = set()
+    current_path = set()
+
+    def dfs(task):
+        if task in current_path:
+            return False
+        if task in visited:
+            return True
+
+        current_path.add(task)
+        max_level = 0
+        for dep in graph[task]:
+            if not dfs(dep):
+                return False
+            max_level = max(max_level, level_map[dep])
+        current_path.remove(task)
+
+        visited.add(task)
+        level_map[task] = max_level + 1
+        return True
+
+    for task, _ in tasks:
+        if task not in visited:
+            if not dfs(task):
+                return "Error: Cyclic dependency detected"
+
+    result = defaultdict(list)
+    for task, level in level_map.items():
+        result[level].append(task)
+
+    return [result[level] for level in sorted(result)]
+
+def get_tasks_from_user():
+    tasks = []
+    while True:
+        task = input("Enter task name (or 'done' to finish): ").strip()
+        if task.lower() == "done":
+            break
+        dependencies = input(f"Enter dependencies for task '{task}' (comma-separated, or leave blank if none): ").strip()
+        dependencies_list = dependencies.split(",") if dependencies else []
+        dependencies_list = [dep.strip() for dep in dependencies_list if dep.strip()]
+        tasks.append((task, dependencies_list))
+    return tasks
+
+tasks = get_tasks_from_user()
+result = find_concurrent_jobs(tasks)
+if isinstance(result, str):
+    print(result)
+else:
+    for level, jobs in enumerate(result, 1):
+        print(f"Level {level}: {', '.join(jobs)}")
