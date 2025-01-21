@@ -1,0 +1,23 @@
+import java.util.*;
+class Main {
+    public static void solve(int n, char start, char dest, char help) {
+        if (n == 1) {
+            System.out.println("Move disk 1 from " + start + " to " + dest);
+            return;
+        }
+        solve(n - 1, start, help, dest);
+        System.out.println("Move disk " + n + " from " + start + " to " + dest);
+        solve(n - 1, help, dest, start);
+    }
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        char start = s.next().charAt(0);
+        char destination = s.next().charAt(0);
+        char helper = s.next().charAt(0);
+        System.out.println("Minimum number of moves: " + ((int) Math.pow(2, n) - 1));
+        System.out.println("Sequence of moves:");
+        solve(n, start, destination, helper);
+        s.close();
+    }
+}
