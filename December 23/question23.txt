@@ -1,0 +1,31 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner s1=new Scanner(System.in);
+        int n=s1.nextInt();
+        int[][] arr=new int[n][n];
+        int z=1;
+        int s=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+            if (i == 0 || i == n - 1 || j == 0 || j == n - 1)
+                s+=z;
+               
+            arr[i][j]=z++;
+            }
+        }
+      
+        int pri=0,sec=0;
+        for(int i=0;i<n;i++)
+        {
+            pri+=arr[i][i];
+            sec+=arr[i][n-1-i];
+        }
+        int diag=Math.abs(pri-sec);
+   
+        int magic=diag+s;
+        System.out.println(magic);
+    }
+}

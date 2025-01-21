@@ -1,0 +1,24 @@
+import java.util.*;
+class Main {
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		List<Integer>l1=new ArrayList<>();
+		for(int i=0; i<n; i++)
+		{
+		    l1.add(s.nextInt());
+		}
+		solution(l1);
+	}
+	public static void solution(List<Integer>l1)
+	{             int c=0;
+		for(int i=0; i<l1.size(); i++)
+		{
+			if(l1.get(i)==1)
+			{
+				c++;
+			}
+		}
+		System.out.print(c);
+	}
+}

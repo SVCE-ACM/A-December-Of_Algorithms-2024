@@ -1,0 +1,27 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       Scanner s=new Scanner(System.in);
+       int n=s.nextInt();
+       solution(n);
+    }
+    public static void solution(int n)
+    {
+        List<List<Integer>>l1=new ArrayList<>();
+        for(int i=0;i<n;i++)
+        {
+            List<Integer>cur=new ArrayList<>();
+            cur.add(1);
+            for(int j=1;j<i;j++)
+            {
+                int val=l1.get(i-1).get(j-1)+l1.get(i-1).get(j);
+                cur.add(val);
+            }
+            if(i>0)
+            cur.add(1);
+            
+            l1.add(cur);
+        }
+        System.out.print(l1);
+    }
+}

@@ -1,0 +1,41 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       Scanner ss=new Scanner(System.in);
+       String s=ss.next();
+        int start=0,end=0;
+        for(int i=0;i<s.length();i++)
+        {
+            int l1=cal(s,i,i);
+            int l2=cal(s,i,i+1);
+            int total=Math.max(l1,l2);
+            if(total>end-start)
+            {
+                start=i-((total-1)/2);
+                end=i+(total/2);
+            }
+        }
+        String newstr= s.substring(start,end+1);
+        int c=0;
+        for(int i=0;i<newstr.length();i++)
+        {
+            if(newstr.charAt(i)=='R')
+            c+=250;
+            if(newstr.charAt(i)=='D')
+            c+=500;
+            if(newstr.charAt(i)=='E')
+            c+=100;
+        }
+        System.out.print("$"+c);
+    }
+    public static int cal(String s,int l,int r)
+    {
+        if(s==null || l>r)
+        return 0;
+        while(l>=0 && r<s.length() && s.charAt(l) == s.charAt(r))
+        {
+            l--;
+            r++;
+        }
+        return r-l-1;
+    }       }

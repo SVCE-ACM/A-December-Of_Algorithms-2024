@@ -1,0 +1,53 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt(); 
+        StringBuilder result = new StringBuilder();
+        while (test-- > 0) {
+            int n = sc.nextInt(); 
+            int k = sc.nextInt();
+            int d = sc.nextInt(); 
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = sc.nextInt();
+            }
+            if (cal(n,k,d,arr)) {
+                result.append("yes\n");
+            } else {
+                result.append("no\n");
+            }
+        }
+        System.out.println(result);
+        sc.close();
+    }
+
+    public static boolean cal(int n, int k, int d, int[] arr) {
+         HashMap<Integer, Integer> h1 = new HashMap<>();
+        for (int num : arr) {
+            h1.put(num, h1.getOrDefault(num, 0) + 1);
+        }
+        if (h1.size() < k) 
+        return false;
+        HashSet<Integer> team1 = new HashSet<>();
+        int[] freq = new int[n + 1];
+        int l = 0;
+        for (int r = 0; r < n; r++) {
+            freq[arr[r]]++;
+            team1.add(arr[r]);
+            while (team1.size() > k) {
+                freq[arr[l]]--;
+                if (freq[arr[l]] == 0) {
+                    team1.remove(arr[l]);
+                }
+                l++;
+            }
+            int team1_size = r - l + 1;
+            int team2_size= n - team1_size;
+            if (Math.abs(team1_size - team2_size) <= d && team1.size() == k) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

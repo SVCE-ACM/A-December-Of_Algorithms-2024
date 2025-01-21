@@ -1,0 +1,41 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       Scanner s1=new Scanner(System.in);
+       int n=s1.nextInt();
+       int n1=s1.nextInt();
+       int[] arrival=new int[n];
+       int[] departure=new int[n1];
+       for(int i=0;i<n;i++)
+       arrival[i]=s1.nextInt();
+       for(int i=0;i<n;i++)
+       departure[i]=s1.nextInt();
+       int c=0;
+        for(int i=0;i<n-1;i++)    
+        {
+            for(int j=i+1;j<n;j++)
+            if(arrival[i]>arrival[j])
+            {
+                int temp=arrival[i];
+                arrival[i]=arrival[j];
+                arrival[j]=temp;
+                
+                int temp1=departure[i];
+                departure[i]=departure[j];
+                departure[j]=temp1;
+            }
+        }
+       int min = arrival[0];
+       int max=departure[0];
+       for(int i=1;i<n;i++)
+       {
+           if(max>arrival[i])
+           c++;
+           else
+           {
+               min=arrival[i];
+               max=departure[i];
+           }
+       }
+       System.out.println(c);
+    }   }

@@ -1,0 +1,31 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int target=s.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=s.nextInt();
+        }
+        solution(arr,target);
+    }
+    public static void solution(int[] arr,int target)
+    {
+        int n=arr.length;
+        HashMap<Integer,Integer>h1=new HashMap<>();
+        HashSet<int[]> set = new HashSet<>();
+        for (int i = 0; i <arr.length; i++) {
+            int complement = target - arr[i];
+            if (h1.containsValue(complement)) {
+                set.add(new int[]{complement,arr[i]});
+            }
+            h1.put(i,arr[i]);
+        }
+         for(int[] s:set)
+        {
+            System.out.println(Arrays.toString(s));
+        }
+    }
+}

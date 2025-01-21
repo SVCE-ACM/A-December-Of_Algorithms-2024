@@ -1,0 +1,52 @@
+from collections import deque
+
+def process_ticket_requests(N, requests):
+    vip_queue = deque()
+    regular_queue = deque()
+    remaining_tickets = N
+    results = []
+
+    for request in requests:
+        name, tickets, *priority = request.split()
+        tickets = int(tickets)
+        if "VIP" in priority:
+            vip_queue.append((name, tickets))
+        else:
+            regular_queue.append((name, tickets))
+
+    def process_queue(queue):
+        nonlocal remaining_tickets
+        while queue and remaining_tickets > 0:
+            name, tickets = queue.popleft()
+            if tickets <= remaining_tickets:
+                remaining_tickets -= tickets
+                results.append(f"{name} purchased {tickets} tickets")
+            else:
+                results.append(f"{name} purchased {remaining_tickets} tickets")
+                remaining_tickets = 0
+
+    process_queue(vip_queue)
+    process_queue(regular_queue)
+
+    for queue in [vip_queue, regular_queue]:
+        while queue:
+            name, _ = queue.popleft()
+            results.append(f"{name} was not served")
+
+    return results
+
+def get_dynamic_input():
+    N = int(input("Enter the total number of tickets available: "))
+    requests = []
+    print("Enter ticket requests (name, number of tickets, optional VIP). Type 'done' to finish:")
+    while True:
+        request = input().strip()
+        if request.lower() == "done":
+            break
+        requests.append(request)
+    return N, requests
+
+N, requests = get_dynamic_input()
+output = process_ticket_requests(N, requests)
+for line in output:
+    print(line)

@@ -1,0 +1,29 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       Scanner s=new Scanner(System.in);
+       int n=s.nextInt();
+       int[] arr=new int[n];
+       for(int i=0;i<n;i++)
+       arr[i]=s.nextInt();
+       int leftmax=arr[0];
+        Stack<Integer> rightmax=new Stack();
+        rightmax.push(arr[arr.length-1]);
+        for(int i=arr.length-2;i>=2;i--)
+        {
+            int temp=Math.max(rightmax.peek(),arr[i]);
+            rightmax.push(temp);
+        }
+        int totalwater=0;
+        for(int i=1;i<arr.length-1;i++)
+        {
+            int min=Math.min(rightmax.peek(),leftmax);
+            int temp=min-arr[i];
+            totalwater+=Math.max(0,temp);
+            rightmax.pop();
+            leftmax=Math.max(leftmax,arr[i]);
+        }
+        System.out.print(totalwater);
+    }
+}
+

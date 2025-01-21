@@ -1,0 +1,39 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int target=s.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=s.nextInt();
+        }
+        List<List<Integer>>l1=new ArrayList<>();
+        l1=solution(arr,target);
+        System.out.print(l1.size());
+    }
+    public static List<List<Integer>> solution(int[] arr,int t)
+    {
+        List<List<Integer>>l2=new ArrayList<>();
+        comb(arr,t,l2,new ArrayList<>());
+        return l2;
+    }
+    public static void comb(int[] arr,int t,List<List<Integer>> l2,List<Integer> cur)
+    {
+        if(t==0)
+        {
+            l2.add(new ArrayList<>(cur));
+            return;
+        }
+      for(int ind=0;ind<arr.length;ind++)
+      {
+        if(arr[ind]<=t)
+        {
+            cur.add(arr[ind]);
+            comb(arr,t-arr[ind],l2,cur);
+            cur.remove(cur.size()-1);
+        }
+      }
+    }
+}
