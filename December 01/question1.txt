@@ -1,0 +1,17 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int[] arr=new int[n-1];
+        int sum=0;
+        for(int i=0;i<n-1;i++)
+        {
+            arr[i]=s.nextInt();
+            sum+=arr[i];
+        }
+        int total=n*(n+1)/2;
+        int result=Math.abs(total-sum);
+        System.out.print(result);
+    }
+}
