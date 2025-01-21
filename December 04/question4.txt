@@ -1,0 +1,20 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int a=1;
+        int c;
+        int b=1;
+        for(int i=3;i<=n;i++)
+        {
+            c=a+b;
+            if(i==n)
+            {
+            System.out.print(c);
+            break;
+            }
+            a=b;b=c;
+        }
+    }
+}
