@@ -1,0 +1,43 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int n1=s.nextInt();
+        int n2=s.nextInt();
+        System.out.println(solution(n1, n2));
+    }
+    public static String solution(int n1,int n2)
+    {
+        StringBuilder s=new StringBuilder();
+        if(Math.abs(n1-n2)>1)
+        return "not possible";
+        else
+        {
+            if(n1>=n2)
+            {
+            for(int i=0;i<n1+n2;i++)
+            {
+                if(i%2==0)
+                {
+                    s.insert(i,"R");
+                }
+                else
+                s.insert(i,"B");
+            }
+           }
+           else
+           {
+            for(int i=0;i<n1+n2;i++)
+            {
+                if(i%2==0)
+                {
+                    s.insert(i,"B");
+                }
+                else
+                s.insert(i,"R");
+                }
+            }
+        }
+        return s.toString();
+        }
+    }
