@@ -1,0 +1,25 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       Scanner s=new Scanner(System.in);
+       int n=s.nextInt();
+       solution(n);
+    }
+    public static void solution(int n)
+    {
+        int s,res=0,j;
+        for(int i=1;i<=n;i++)
+        { 
+            s=0;
+            j=i;
+            while(j>0)
+            {
+            int r=j%10;
+            s+=r*r;
+            j/=10;
+            }
+            res+=s;
+        }
+        System.out.print(res);
+    }
+}
