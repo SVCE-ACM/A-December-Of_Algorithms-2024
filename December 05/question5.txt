@@ -1,0 +1,24 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       Scanner s=new Scanner(System.in);
+       int n=s.nextInt();
+       int k=s.nextInt();
+       solution(n,k);
+    }
+    public static void solution(int n,int k)
+    {
+        List<Integer>l1=new ArrayList<>();
+        for(int i=0;i<n;i++)
+        {
+            l1.add(i);
+        }
+        int j=0;
+        while(l1.size()>1)
+        {
+            j=(j+k-1)%l1.size();
+            l1.remove(j);
+        }
+        System.out.print(l1.get(0));
+    }   
+}
